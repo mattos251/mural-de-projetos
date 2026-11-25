@@ -1,0 +1,409 @@
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Equilíbrio Jovem - Produtos</title>
+
+<style>
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+}
+
+body {
+    background: #101010;
+    color: white;
+}
+
+header {
+    background: #1a1422;
+    padding: 25px;
+    text-align: center;
+    border-bottom: 2px solid #8e44e8;
+}
+
+header h1 {
+    color: #b77aff;
+    margin-bottom: 8px;
+}
+
+header p {
+    color: #ccc;
+}
+
+.container {
+    max-width: 1100px;
+    margin: 30px auto;
+    padding: 0 20px;
+}
+
+h2 {
+    color: #b77aff;
+    margin-bottom: 20px;
+}
+
+.filtros {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+    margin-bottom: 20px;
+}
+
+input, select {
+    background: #25202c;
+    color: white;
+    border: 1px solid #7040a0;
+    padding: 12px;
+    border-radius: 8px;
+}
+
+#pesquisa {
+    flex: 1;
+    min-width: 180px;
+}
+
+button {
+    background: #782bd1;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    padding: 11px 15px;
+    cursor: pointer;
+}
+
+button:hover {
+    background: #994de9;
+}
+
+.produtos {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 20px;
+}
+
+.produto {
+    background: #1d1d1d;
+    padding: 20px;
+    border-radius: 12px;
+    border: 1px solid #49296a;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.produto .icone {
+    font-size: 42px;
+}
+
+.produto h3 {
+    color: #c18cff;
+}
+
+.produto p {
+    color: #ccc;
+    font-size: 14px;
+}
+
+.preco {
+    color: #c18cff;
+    font-size: 21px;
+    font-weight: bold;
+}
+
+.produto button {
+    margin-top: auto;
+}
+
+.painel {
+    background: #1d1d1d;
+    padding: 22px;
+    border: 1px solid #7040a0;
+    border-radius: 12px;
+    margin-top: 30px;
+}
+
+.painel h2 {
+    margin-bottom: 15px;
+}
+
+.item-carrinho {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 10px;
+    padding: 12px 0;
+    border-bottom: 1px solid #444;
+}
+
+.total {
+    color: #c18cff;
+    font-size: 22px;
+    margin-top: 20px;
+    font-weight: bold;
+}
+
+.remover {
+    background: #a52d55;
+}
+
+form {
+    display: grid;
+    gap: 10px;
+}
+
+.cadastro {
+    margin-top: 30px;
+    background: #1d1d1d;
+    padding: 22px;
+    border-radius: 12px;
+    border: 1px solid #7040a0;
+}
+
+.cadastro h2 {
+    margin-bottom: 15px;
+}
+
+footer {
+    text-align: center;
+    padding: 25px;
+    color: #aaa;
+}
+
+</style>
+</head>
+
+<body>
+
+<header>
+    <h1>💜 Equilíbrio Jovem</h1>
+    <p>Produtos de autocuidado e bem-estar</p>
+</header>
+
+<main class="container">
+
+    <h2>🌿 Catálogo de produtos</h2>
+
+    <div class="filtros">
+        <input type="text" id="pesquisa"
+        placeholder="Pesquisar produto...">
+
+        <select id="categoria">
+            <option value="Todos">Todas as categorias</option>
+            <option value="Pele">Cuidados com a pele</option>
+            <option value="Cabelo">Cuidados com o cabelo</option>
+            <option value="Higiene">Higiene pessoal</option>
+            <option value="Relaxamento">Relaxamento</option>
+        </select>
+    </div>
+
+    <div class="produtos" id="listaProdutos"></div>
+
+    <section class="painel">
+        <h2>🛒 Meu carrinho</h2>
+        <div id="carrinho"></div>
+
+        <p class="total" id="total">Total: R$ 0,00</p>
+    </section>
+
+    <section class="cadastro">
+        <h2>➕ Cadastrar produto</h2>
+
+        <form id="formProduto">
+            <input type="text" id="nome"
+            placeholder="Nome do produto" required>
+
+            <input type="text" id="descricao"
+            placeholder="Descrição do produto" required>
+
+            <select id="novaCategoria" required>
+                <option value="">Selecione a categoria</option>
+                <option value="Pele">Cuidados com a pele</option>
+                <option value="Cabelo">Cuidados com o cabelo</option>
+                <option value="Higiene">Higiene pessoal</option>
+                <option value="Relaxamento">Relaxamento</option>
+            </select>
+
+            <input type="number" id="preco"
+            placeholder="Preço em R$" min="0.01"
+            step="0.01" required>
+
+            <button type="submit">Salvar produto</button>
+        </form>
+    </section>
+
+</main>
+
+<footer>
+    <p>💜 Equilíbrio Jovem - Seu bem-estar em primeiro lugar!</p>
+</footer>
+
+<script>
+
+let produtos = [
+    {nome:"Sabonete facial", descricao:"Limpeza diária da pele.", categoria:"Pele", preco:25, icone:"🧼"},
+    {nome:"Hidratante facial", descricao:"Hidratação para o rosto.", categoria:"Pele", preco:35, icone:"🧴"},
+    {nome:"Protetor solar", descricao:"Proteção contra raios solares.", categoria:"Pele", preco:45, icone:"☀️"},
+    {nome:"Água micelar", descricao:"Auxilia na limpeza facial.", categoria:"Pele", preco:29, icone:"💧"},
+
+    {nome:"Shampoo", descricao:"Limpeza dos cabelos.", categoria:"Cabelo", preco:22, icone:"🧴"},
+    {nome:"Condicionador", descricao:"Ajuda a desembaraçar os fios.", categoria:"Cabelo", preco:24, icone:"🫧"},
+    {nome:"Máscara capilar", descricao:"Tratamento e hidratação dos fios.", categoria:"Cabelo", preco:32, icone:"🧖"},
+    {nome:"Creme para pentear", descricao:"Auxilia na finalização dos cabelos.", categoria:"Cabelo", preco:27, icone:"💜"},
+
+    {nome:"Sabonete líquido", descricao:"Higiene e limpeza corporal.", categoria:"Higiene", preco:18, icone:"🧼"},
+    {nome:"Hidratante corporal", descricao:"Cuidados com a pele do corpo.", categoria:"Higiene", preco:30, icone:"🧴"},
+    {nome:"Desodorante", descricao:"Auxilia no controle dos odores.", categoria:"Higiene", preco:16, icone:"✨"},
+    {nome:"Creme para mãos", descricao:"Hidratação das mãos.", categoria:"Higiene", preco:20, icone:"🤲"},
+
+    {nome:"Vela aromática", descricao:"Para criar um ambiente relaxante.", categoria:"Relaxamento", preco:25, icone:"🕯️"},
+    {nome:"Máscara de dormir", descricao:"Acessório para o descanso.", categoria:"Relaxamento", preco:20, icone:"🌙"},
+    {nome:"Sais de banho", descricao:"Produto para momentos de relaxamento.", categoria:"Relaxamento", preco:22, icone:"🛁"},
+    {nome:"Almofada relaxante", descricao:"Conforto para momentos de descanso.", categoria:"Relaxamento", preco:35, icone:"💜"}
+];
+
+let carrinho = [];
+
+function moeda(valor) {
+    return valor.toLocaleString("pt-BR", {
+        style:"currency",
+        currency:"BRL"
+    });
+}
+
+// MOSTRAR PRODUTOS
+function mostrarProdutos() {
+    const lista = document.getElementById("listaProdutos");
+    const busca = document.getElementById("pesquisa").value.toLowerCase();
+    const categoria = document.getElementById("categoria").value;
+
+    lista.innerHTML = "";
+
+    const filtrados = produtos.filter(p =>
+        p.nome.toLowerCase().includes(busca) &&
+        (categoria === "Todos" || p.categoria === categoria)
+    );
+
+    filtrados.forEach((produto) => {
+        const index = produtos.indexOf(produto);
+
+        const card = document.createElement("div");
+        card.className = "produto";
+
+        const icone = document.createElement("div");
+        icone.className = "icone";
+        icone.textContent = produto.icone;
+
+        const titulo = document.createElement("h3");
+        titulo.textContent = produto.nome;
+
+        const descricao = document.createElement("p");
+        descricao.textContent = produto.descricao;
+
+        const preco = document.createElement("div");
+        preco.className = "preco";
+        preco.textContent = moeda(produto.preco);
+
+        const botao = document.createElement("button");
+        botao.textContent = "Adicionar ao carrinho";
+        botao.addEventListener("click", () => adicionarCarrinho(index));
+
+        card.append(icone, titulo, descricao, preco, botao);
+        lista.appendChild(card);
+    });
+
+    if (filtrados.length === 0) {
+        lista.textContent = "Nenhum produto encontrado.";
+    }
+}
+
+// ADICIONAR AO CARRINHO
+function adicionarCarrinho(index) {
+    carrinho.push(produtos[index]);
+    mostrarCarrinho();
+}
+
+// MOSTRAR CARRINHO
+function mostrarCarrinho() {
+    const lista = document.getElementById("carrinho");
+    lista.innerHTML = "";
+
+    let total = 0;
+
+    carrinho.forEach((produto, index) => {
+        total += produto.preco;
+
+        const item = document.createElement("div");
+        item.className = "item-carrinho";
+
+        const nome = document.createElement("span");
+        nome.textContent = produto.nome + " - " + moeda(produto.preco);
+
+        const botao = document.createElement("button");
+        botao.textContent = "Remover";
+        botao.className = "remover";
+
+        botao.addEventListener("click", () => {
+            carrinho.splice(index, 1);
+            mostrarCarrinho();
+        });
+
+        item.append(nome, botao);
+        lista.appendChild(item);
+    });
+
+    if (carrinho.length === 0) {
+        lista.textContent = "Seu carrinho está vazio.";
+    }
+
+    document.getElementById("total").textContent =
+        "Total: " + moeda(total);
+}
+
+// PESQUISAR E FILTRAR
+document.getElementById("pesquisa")
+.addEventListener("input", mostrarProdutos);
+
+document.getElementById("categoria")
+.addEventListener("change", mostrarProdutos);
+
+// CADASTRAR NOVO PRODUTO
+document.getElementById("formProduto")
+.addEventListener("submit", function(e) {
+    e.preventDefault();
+
+    const nome = document.getElementById("nome").value.trim();
+    const descricao = document.getElementById("descricao").value.trim();
+    const categoria = document.getElementById("novaCategoria").value;
+    const preco = Number(document.getElementById("preco").value);
+
+    if (!nome || !descricao || !categoria || !Number.isFinite(preco) || preco <= 0) {
+        alert("Preencha os campos corretamente.");
+        return;
+    }
+
+    produtos.push({
+        nome,
+        descricao,
+        categoria,
+        preco,
+        icone:"💜"
+    });
+
+    this.reset();
+    mostrarProdutos();
+
+    alert("Produto cadastrado com sucesso!");
+});
+
+// INICIAR SISTEMA
+mostrarProdutos();
+mostrarCarrinho();
+
+</script>
+
+</body>
+</html>

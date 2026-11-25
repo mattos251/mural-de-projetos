@@ -1,0 +1,888 @@
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SkinCare | Isaadora de Sousa Veras</title>
+
+<style>
+:root {
+    --roxo: #8953A6;
+    --roxo-escuro: #603C7B;
+    --rosa: #E78AB5;
+    --rosa-claro: #FCEAF3;
+    --fundo: #F8F4FA;
+    --branco: #FFFFFF;
+    --texto: #42344B;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+
+body {
+    background: var(--fundo);
+    color: var(--texto);
+}
+
+.layout {
+    display: flex;
+    min-height: 100vh;
+}
+
+/* MENU LATERAL */
+
+.sidebar {
+    width: 245px;
+    background: linear-gradient(180deg, #8953A6, #704486);
+    color: white;
+    padding: 28px 18px;
+    position: fixed;
+    height: 100vh;
+    left: 0;
+    top: 0;
+}
+
+.logo {
+    font-size: 27px;
+    font-weight: bold;
+}
+
+.logo span {
+    color: #FFD5E9;
+}
+
+.subtitle {
+    font-size: 12px;
+    color: #F0DCEF;
+    margin-top: 8px;
+    margin-bottom: 35px;
+}
+
+.menu-title {
+    font-size: 11px;
+    color: #E9D6F0;
+    margin: 25px 10px 12px;
+}
+
+.sidebar a {
+    display: block;
+    color: white;
+    text-decoration: none;
+    padding: 13px;
+    margin-bottom: 7px;
+    border-radius: 10px;
+    font-size: 14px;
+    cursor: pointer;
+}
+
+.sidebar a:hover,
+.sidebar a.active {
+    background: #FFFFFF30;
+}
+
+/* CONTEÚDO */
+
+main {
+    margin-left: 245px;
+    width: calc(100% - 245px);
+    padding: 30px;
+}
+
+.topbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 15px;
+    margin-bottom: 30px;
+}
+
+.topbar h2 {
+    color: var(--roxo-escuro);
+}
+
+.user-badge {
+    background: white;
+    padding: 12px 18px;
+    border-radius: 12px;
+    color: var(--roxo);
+    font-weight: bold;
+}
+
+/* BANNER */
+
+.welcome {
+    background: linear-gradient(110deg, #8953A6, #DE86B1);
+    padding: 30px;
+    border-radius: 18px;
+    color: white;
+    margin-bottom: 25px;
+}
+
+.welcome h2 {
+    color: white;
+    margin-bottom: 10px;
+}
+
+/* CARDS */
+
+.stats {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 18px;
+    margin-bottom: 25px;
+}
+
+.card {
+    background: white;
+    padding: 23px;
+    border-radius: 15px;
+    box-shadow: 0 3px 12px #7044860D;
+    margin-bottom: 20px;
+}
+
+.stat-card {
+    border-bottom: 4px solid var(--rosa);
+}
+
+.stat-card p {
+    color: #897C90;
+    font-size: 13px;
+}
+
+.stat-card h2 {
+    font-size: 32px;
+    margin-top: 12px;
+    color: var(--roxo);
+}
+
+/* SEÇÕES */
+
+section {
+    display: none;
+}
+
+section.active {
+    display: block;
+}
+
+.section-title {
+    color: var(--roxo-escuro);
+    margin-bottom: 20px;
+    font-size: 23px;
+}
+
+/* FORMULÁRIOS */
+
+label {
+    display: block;
+    margin-top: 14px;
+    font-size: 14px;
+    font-weight: bold;
+}
+
+input, select {
+    width: 100%;
+    padding: 13px;
+    margin-top: 8px;
+    border: 1px solid #EDE3F0;
+    border-radius: 9px;
+    background: #FFFCFF;
+    color: var(--texto);
+}
+
+button {
+    border: none;
+    background: linear-gradient(110deg, var(--roxo), var(--rosa));
+    color: white;
+    padding: 12px 20px;
+    border-radius: 9px;
+    font-weight: bold;
+    cursor: pointer;
+    margin-top: 15px;
+}
+
+button:hover {
+    opacity: .88;
+}
+
+/* LISTAS */
+
+.list-item {
+    background: var(--rosa-claro);
+    padding: 15px;
+    border-radius: 11px;
+    margin-top: 12px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 10px;
+}
+
+.list-item span {
+    overflow-wrap: anywhere;
+}
+
+.list-item .actions {
+    display: flex;
+    gap: 7px;
+    flex-shrink: 0;
+}
+
+.done {
+    text-decoration: line-through;
+    opacity: .5;
+}
+
+.delete {
+    background: #D96E8F;
+    padding: 8px 12px;
+    margin: 0;
+    font-size: 12px;
+}
+
+.complete {
+    background: #6DAD8A;
+    padding: 8px 12px;
+    margin: 0;
+    font-size: 12px;
+}
+
+.message {
+    margin-top: 15px;
+    color: var(--roxo);
+    font-weight: bold;
+}
+
+.empty {
+    color: #897C90;
+    padding: 15px 0;
+}
+
+/* ROTINA */
+
+.routine-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 18px;
+}
+
+.progress {
+    width: 100%;
+    background: #F0E8F3;
+    height: 12px;
+    border-radius: 20px;
+    margin-top: 15px;
+    overflow: hidden;
+}
+
+.progress-bar {
+    height: 100%;
+    width: 0%;
+    background: linear-gradient(90deg, var(--roxo), var(--rosa));
+    transition: .3s;
+}
+
+footer {
+    text-align: center;
+    color: #897C90;
+    font-size: 12px;
+    padding: 25px;
+}
+
+@media(max-width: 800px) {
+    .sidebar {
+        width: 100%;
+        height: auto;
+        position: relative;
+        padding: 15px;
+    }
+
+    .subtitle, .menu-title {
+        display: none;
+    }
+
+    .sidebar nav {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 5px;
+        margin-top: 15px;
+    }
+
+    .sidebar a {
+        padding: 10px;
+        font-size: 12px;
+        margin: 0;
+    }
+
+    .layout {
+        display: block;
+    }
+
+    main {
+        margin: 0;
+        width: 100%;
+        padding: 18px;
+    }
+
+    .stats {
+        grid-template-columns: 1fr;
+    }
+
+    .routine-grid {
+        grid-template-columns: 1fr;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<div class="layout">
+
+<aside class="sidebar">
+
+    <div class="logo">🌸 Cuidados<span>que Brilham</span></div>
+
+    <p class="subtitle">Seu momento de autocuidado</p>
+
+    <p class="menu-title">MENU PRINCIPAL</p>
+
+    <nav>
+        <a class="active" onclick="abrirSecao('inicio',this)">🏠 Início</a>
+        <a onclick="abrirSecao('perfil',this)">👤 Meu perfil</a>
+        <a onclick="abrirSecao('rotina',this)">🧴 Minha rotina</a>
+        <a onclick="abrirSecao('produtos',this)">💄 Produtos</a>
+        <a onclick="abrirSecao('lembretes',this)">🔔 Lembretes</a>
+        <a onclick="abrirSecao('historico',this)">📅 Histórico</a>
+    </nav>
+
+    <p style="margin-top:40px;font-size:12px;color:#F0DCEF">
+        Desenvolvido por:<br>
+        <strong>Isaadora de Sousa Veras</strong>
+    </p>
+
+</aside>
+
+<main>
+
+<div class="topbar">
+    <h2 id="tituloPagina">Visão geral</h2>
+    <div class="user-badge">💜 Isaadora</div>
+</div>
+
+<!-- INÍCIO -->
+
+<section id="inicio" class="active">
+
+    <div class="welcome">
+        <h2>Olá, Isaadora! 💗</h2>
+        <p>
+            Seja bem-vinda ao seu espaço de autocuidado!
+            Organize sua rotina e cuide da sua pele com carinho.
+        </p>
+    </div>
+
+    <div class="stats">
+
+        <div class="card stat-card">
+            <p>Cuidados cadastrados</p>
+            <h2 id="totalRotina">0</h2>
+        </div>
+
+        <div class="card stat-card">
+            <p>Cuidados concluídos</p>
+            <h2 id="totalConcluidos">0</h2>
+        </div>
+
+        <div class="card stat-card">
+            <p>Produtos cadastrados</p>
+            <h2 id="totalProdutos">0</h2>
+        </div>
+
+    </div>
+
+    <div class="card">
+        <h3>Seu progresso de hoje 💜</h3>
+        <p id="textoProgresso" style="margin-top:10px">
+            Cadastre seus cuidados para acompanhar seu progresso.
+        </p>
+
+        <div class="progress">
+            <div class="progress-bar" id="barraProgresso"></div>
+        </div>
+    </div>
+
+    <div class="card">
+        <h3>Mensagem especial para Isaadora 🌷</h3>
+        <p style="margin-top:12px">
+            Nunca se esqueça de reservar um tempo para você.
+            O autocuidado também é uma forma de amor-próprio!
+        </p>
+    </div>
+
+</section>
+
+<!-- PERFIL -->
+
+<section id="perfil">
+
+    <h2 class="section-title">👤 Meu Perfil</h2>
+
+    <div class="card">
+
+        <label>Nome completo</label>
+        <input type="text" id="nome"
+        value="Isaadora de Sousa Veras">
+
+        <label>Tipo de pele</label>
+        <select id="pele">
+            <option value="">Selecione</option>
+            <option>Normal</option>
+            <option>Oleosa</option>
+            <option>Seca</option>
+            <option>Mista</option>
+            <option>Sensível</option>
+        </select>
+
+        <button onclick="salvarPerfil()">Salvar informações</button>
+
+        <p class="message" id="mensagemPerfil"></p>
+
+    </div>
+
+</section>
+
+<!-- ROTINA -->
+
+<section id="rotina">
+
+    <h2 class="section-title">🧴 Minha Rotina de Cuidados</h2>
+
+    <div class="card">
+
+        <label>Nome do cuidado</label>
+        <input type="text" id="cuidado"
+        placeholder="Ex: Aplicar hidratante">
+
+        <label>Período</label>
+        <select id="periodo">
+            <option>Manhã</option>
+            <option>Noite</option>
+        </select>
+
+        <button onclick="adicionarCuidado()">+ Adicionar cuidado</button>
+
+    </div>
+
+    <div class="routine-grid">
+
+        <div class="card">
+            <h3>☀️ Rotina da manhã</h3>
+            <div id="listaManha"></div>
+        </div>
+
+        <div class="card">
+            <h3>🌙 Rotina da noite</h3>
+            <div id="listaNoite"></div>
+        </div>
+
+    </div>
+
+</section>
+
+<!-- PRODUTOS -->
+
+<section id="produtos">
+
+    <h2 class="section-title">💄 Meus Produtos</h2>
+
+    <div class="card">
+
+        <label>Nome do produto</label>
+        <input type="text" id="produto"
+        placeholder="Ex: Hidratante facial">
+
+        <label>Categoria</label>
+        <select id="categoria">
+            <option>Limpeza</option>
+            <option>Hidratação</option>
+            <option>Proteção solar</option>
+            <option>Outro</option>
+        </select>
+
+        <button onclick="adicionarProduto()">+ Cadastrar produto</button>
+
+    </div>
+
+    <div class="card">
+        <h3>Produtos cadastrados</h3>
+        <div id="listaProdutos"></div>
+    </div>
+
+</section>
+
+<!-- LEMBRETES -->
+
+<section id="lembretes">
+
+    <h2 class="section-title">🔔 Cuidados Pendentes</h2>
+
+    <div class="card">
+        <p>Confira os cuidados que ainda precisam ser realizados.</p>
+        <div id="listaLembretes"></div>
+    </div>
+
+</section>
+
+<!-- HISTÓRICO -->
+
+<section id="historico">
+
+    <h2 class="section-title">📅 Histórico de Cuidados</h2>
+
+    <div class="card">
+        <div id="listaHistorico"></div>
+    </div>
+
+</section>
+
+<footer>
+    <p>Cuidados que Brilham © 2026</p>
+    <p>Desenvolvido por Isadora e Lara Sofia💗</p>
+</footer>
+
+</main>
+</div>
+
+<script>
+
+// DADOS
+
+let rotina = JSON.parse(localStorage.getItem("rotina")) || [];
+let produtos = JSON.parse(localStorage.getItem("produtos")) || [];
+let historico = JSON.parse(localStorage.getItem("historico")) || [];
+
+// NAVEGAÇÃO
+
+function abrirSecao(id, elemento) {
+
+    document.querySelectorAll("main section")
+        .forEach(secao => secao.classList.remove("active"));
+
+    document.getElementById(id).classList.add("active");
+
+    document.querySelectorAll(".sidebar a")
+        .forEach(link => link.classList.remove("active"));
+
+    elemento.classList.add("active");
+
+    const titulos = {
+        inicio: "Visão geral",
+        perfil: "Meu perfil",
+        rotina: "Minha rotina",
+        produtos: "Meus produtos",
+        lembretes: "Meus lembretes",
+        historico: "Histórico"
+    };
+
+    document.getElementById("tituloPagina").textContent = titulos[id];
+}
+
+// PERFIL
+
+function salvarPerfil() {
+
+    const nome = document.getElementById("nome").value.trim();
+    const pele = document.getElementById("pele").value;
+
+    if (!nome || !pele) {
+        alert("Preencha todos os campos!");
+        return;
+    }
+
+    localStorage.setItem("nome", nome);
+    localStorage.setItem("pele", pele);
+
+    document.getElementById("mensagemPerfil").textContent =
+        "Perfil salvo com sucesso! 💗";
+
+    document.querySelector(".welcome h2").textContent =
+        "Olá, " + nome + "! 💗";
+
+    carregarPerfil();
+}
+
+function carregarPerfil() {
+
+    const nome = localStorage.getItem("nome") ||
+        "Isadora de Sousa Veras";
+
+    document.getElementById("nome").value = nome;
+
+    document.getElementById("pele").value =
+        localStorage.getItem("pele") || "";
+
+    document.querySelector(".welcome h2").textContent =
+        "Olá, " + nome + "! 💗";
+
+}
+
+// ROTINA
+
+function adicionarCuidado() {
+
+    const nome = document.getElementById("cuidado").value.trim();
+    const periodo = document.getElementById("periodo").value;
+
+    if (!nome) {
+        alert("Digite o nome do cuidado!");
+        return;
+    }
+
+    rotina.push({
+        nome,
+        periodo,
+        concluido: false
+    });
+
+    salvarDados();
+
+    document.getElementById("cuidado").value = "";
+
+    mostrarRotina();
+}
+
+function concluirCuidado(index) {
+
+    rotina[index].concluido = !rotina[index].concluido;
+
+    if (rotina[index].concluido) {
+        historico.push({
+            nome: rotina[index].nome,
+            data: new Date().toLocaleDateString("pt-BR")
+        });
+    } else {
+        historico = historico.filter(item =>
+            !(item.nome === rotina[index].nome &&
+              item.data === new Date().toLocaleDateString("pt-BR"))
+        );
+    }
+
+    salvarDados();
+    mostrarRotina();
+    mostrarHistorico();
+}
+
+function excluirCuidado(index) {
+
+    rotina.splice(index, 1);
+
+    salvarDados();
+    mostrarRotina();
+}
+
+function mostrarRotina() {
+
+    const manha = document.getElementById("listaManha");
+    const noite = document.getElementById("listaNoite");
+
+    manha.innerHTML = "";
+    noite.innerHTML = "";
+
+    rotina.forEach((item, index) => {
+
+        const div = document.createElement("div");
+        div.className = "list-item";
+
+        const texto = document.createElement("span");
+        texto.textContent = item.nome;
+
+        if (item.concluido) texto.className = "done";
+
+        const acoes = document.createElement("div");
+        acoes.className = "actions";
+
+        const concluir = document.createElement("button");
+        concluir.className = "complete";
+        concluir.textContent = item.concluido ? "Desfazer" : "Concluir";
+        concluir.onclick = () => concluirCuidado(index);
+
+        const excluir = document.createElement("button");
+        excluir.className = "delete";
+        excluir.textContent = "Excluir";
+        excluir.onclick = () => excluirCuidado(index);
+
+        acoes.append(concluir, excluir);
+        div.append(texto, acoes);
+
+        if (item.periodo === "Manhã") {
+            manha.appendChild(div);
+        } else {
+            noite.appendChild(div);
+        }
+    });
+
+    if (!manha.children.length) {
+        manha.innerHTML = '<p class="empty">Nenhum cuidado cadastrado.</p>';
+    }
+
+    if (!noite.children.length) {
+        noite.innerHTML = '<p class="empty">Nenhum cuidado cadastrado.</p>';
+    }
+
+    atualizarPainel();
+    mostrarLembretes();
+}
+
+// PRODUTOS
+
+function adicionarProduto() {
+
+    const nome = document.getElementById("produto").value.trim();
+    const categoria = document.getElementById("categoria").value;
+
+    if (!nome) {
+        alert("Digite o nome do produto!");
+        return;
+    }
+
+    produtos.push({ nome, categoria });
+
+    salvarDados();
+
+    document.getElementById("produto").value = "";
+
+    mostrarProdutos();
+}
+
+function excluirProduto(index) {
+
+    produtos.splice(index, 1);
+
+    salvarDados();
+    mostrarProdutos();
+}
+
+function mostrarProdutos() {
+
+    const lista = document.getElementById("listaProdutos");
+    lista.innerHTML = "";
+
+    produtos.forEach((item, index) => {
+
+        const div = document.createElement("div");
+        div.className = "list-item";
+
+        const texto = document.createElement("span");
+        texto.textContent = item.nome + " - " + item.categoria;
+
+        const botao = document.createElement("button");
+        botao.className = "delete";
+        botao.textContent = "Excluir";
+        botao.onclick = () => excluirProduto(index);
+
+        div.append(texto, botao);
+        lista.appendChild(div);
+    });
+
+    if (!produtos.length) {
+        lista.innerHTML = '<p class="empty">Nenhum produto cadastrado.</p>';
+    }
+
+    atualizarPainel();
+}
+
+// LEMBRETES
+
+function mostrarLembretes() {
+
+    const lista = document.getElementById("listaLembretes");
+    lista.innerHTML = "";
+
+    const pendentes = rotina.filter(item => !item.concluido);
+
+    if (!pendentes.length) {
+        lista.textContent = "Todos os cuidados foram concluídos! 💗";
+        return;
+    }
+
+    pendentes.forEach(item => {
+
+        const div = document.createElement("div");
+        div.className = "list-item";
+        div.textContent = "🔔 " + item.nome + " - " + item.periodo;
+
+        lista.appendChild(div);
+    });
+}
+
+// HISTÓRICO
+
+function mostrarHistorico() {
+
+    const lista = document.getElementById("listaHistorico");
+    lista.innerHTML = "";
+
+    if (!historico.length) {
+        lista.innerHTML = '<p class="empty">Nenhum cuidado concluído ainda.</p>';
+        return;
+    }
+
+    historico.forEach(item => {
+
+        const div = document.createElement("div");
+        div.className = "list-item";
+        div.textContent = "💗 " + item.nome + " - " + item.data;
+
+        lista.appendChild(div);
+    });
+}
+
+// PAINEL
+
+function atualizarPainel() {
+
+    const total = rotina.length;
+    const concluidos = rotina.filter(item => item.concluido).length;
+
+    document.getElementById("totalRotina").textContent = total;
+    document.getElementById("totalConcluidos").textContent = concluidos;
+    document.getElementById("totalProdutos").textContent = produtos.length;
+
+    const percentual = total ? (concluidos / total) * 100 : 0;
+
+    document.getElementById("barraProgresso").style.width =
+        percentual + "%";
+
+    document.getElementById("textoProgresso").textContent =
+        total
+        ? concluidos + " de " + total + " cuidados concluídos."
+        : "Cadastre seus cuidados para acompanhar seu progresso.";
+}
+
+// SALVAR
+
+function salvarDados() {
+
+    localStorage.setItem("rotina", JSON.stringify(rotina));
+    localStorage.setItem("produtos", JSON.stringify(produtos));
+    localStorage.setItem("historico", JSON.stringify(historico));
+
+}
+
+// INICIALIZAR
+
+carregarPerfil();
+mostrarRotina();
+mostrarProdutos();
+mostrarHistorico();
+
+</script>
+
+</body>
+</html>

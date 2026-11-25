@@ -1,0 +1,478 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>FITNESS | Saúde e Movimento</title>
+
+<style>
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+
+body {
+    background: #fffbea;
+    color: #292929;
+}
+
+/* CABEÇALHO ORGANIZADO */
+header {
+    background: #202020;
+    padding: 30px 15px;
+    text-align: center;
+    border-bottom: 5px solid #ffd700;
+}
+
+.logo {
+    width: 65px;
+    height: 65px;
+    background: #ffd700;
+    color: #202020;
+    border-radius: 18px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: auto auto 12px;
+    font-size: 35px;
+}
+
+header h1 {
+    color: #ffd700;
+    font-size: 34px;
+    letter-spacing: 4px;
+    margin-bottom: 8px;
+}
+
+header p {
+    color: #ffffff;
+    font-size: 14px;
+    letter-spacing: 1px;
+}
+
+.tagline {
+    color: #ffd700;
+    font-size: 12px;
+    margin-top: 12px;
+    font-weight: bold;
+}
+
+/* CONTEÚDO */
+.container {
+    max-width: 950px;
+    margin: 30px auto;
+    padding: 15px;
+}
+
+/* RESUMO */
+.resumo {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 15px;
+    text-align: center;
+}
+
+.card {
+    background: white;
+    padding: 22px;
+    margin-bottom: 20px;
+    border-radius: 15px;
+    box-shadow: 0 3px 12px #00000012;
+    border: 1px solid #f5e7a6;
+}
+
+.resumo .card {
+    border-top: 4px solid #ffd700;
+}
+
+.numero {
+    font-size: 28px;
+    font-weight: bold;
+    color: #bd9200;
+    margin-top: 12px;
+}
+
+h2 {
+    color: #b58a00;
+    margin-bottom: 18px;
+}
+
+/* FORMULÁRIOS */
+label {
+    display: block;
+    font-weight: bold;
+    margin-top: 12px;
+}
+
+input, select {
+    width: 100%;
+    padding: 12px;
+    margin: 8px 0 15px;
+    border: 1px solid #e5d48c;
+    border-radius: 8px;
+    outline: none;
+}
+
+input:focus, select:focus {
+    border-color: #d5aa00;
+}
+
+/* BOTÕES */
+button {
+    background: #f5c518;
+    color: #292929;
+    padding: 12px 18px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+button:hover {
+    background: #e0ad00;
+}
+
+/* PROGRESSO */
+.progresso {
+    background: #f5edcf;
+    height: 15px;
+    border-radius: 10px;
+    overflow: hidden;
+    margin: 15px 0;
+}
+
+#barra {
+    height: 100%;
+    width: 0%;
+    background: #f5c518;
+    transition: .3s;
+}
+
+/* HISTÓRICO */
+.atividade {
+    background: #fffbea;
+    padding: 14px;
+    margin-top: 10px;
+    border-radius: 8px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 10px;
+}
+
+.excluir {
+    background: #d94343;
+    color: white;
+    padding: 8px 12px;
+}
+
+footer {
+    background: #202020;
+    color: #ffd700;
+    text-align: center;
+    padding: 22px;
+    margin-top: 30px;
+}
+
+/* CELULAR */
+@media(max-width: 600px) {
+    .resumo {
+        grid-template-columns: 1fr;
+    }
+
+    header h1 {
+        font-size: 27px;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<header>
+
+    <div class="logo">🏋️</div>
+
+    <h1>FITNESS</h1>
+
+    <p>SAÚDE • EXERCÍCIOS • BEM-ESTAR</p>
+
+    <div class="tagline">
+        SUA MELHOR VERSÃO COMEÇA AQUI!
+    </div>
+
+</header>
+
+<div class="container">
+
+    <!-- PAINEL PRINCIPAL -->
+    <section class="resumo">
+
+        <div class="card">
+            <h3>🏃 Atividades</h3>
+            <div class="numero" id="total">0</div>
+        </div>
+
+        <div class="card">
+            <h3>⏱️ Minutos</h3>
+            <div class="numero" id="minutos">0</div>
+        </div>
+
+        <div class="card">
+            <h3>🎯 Meta diária</h3>
+            <div class="numero" id="metaResumo">30</div>
+        </div>
+
+    </section>
+
+    <!-- CADASTRO -->
+    <section class="card">
+
+        <h2>➕ Registrar atividade</h2>
+
+        <label>Tipo de atividade:</label>
+
+        <select id="tipo">
+            <option value="Caminhada">🚶 Caminhada</option>
+            <option value="Corrida">🏃 Corrida</option>
+            <option value="Bicicleta">🚴 Bicicleta</option>
+            <option value="Musculação">🏋️ Musculação</option>
+            <option value="Dança">💃 Dança</option>
+            <option value="Alongamento">🧘 Alongamento</option>
+        </select>
+
+        <label>Duração (minutos):</label>
+
+        <input type="number" id="duracao"
+        placeholder="Digite a duração" min="1">
+
+        <button onclick="registrarAtividade()">
+            Salvar atividade
+        </button>
+
+    </section>
+
+    <!-- METAS -->
+    <section class="card">
+
+        <h2>🎯 Minha meta diária</h2>
+
+        <p>Meta de minutos por dia:</p>
+
+        <input type="number" id="meta" value="30" min="1">
+
+        <button onclick="atualizarMeta()">
+            Atualizar meta
+        </button>
+
+        <div class="progresso">
+            <div id="barra"></div>
+        </div>
+
+        <p id="mensagem">Continue se movimentando!</p>
+
+    </section>
+
+    <!-- HISTÓRICO -->
+    <section class="card">
+
+        <h2>📋 Histórico de atividades</h2>
+
+        <div id="historico">
+            <p>Nenhuma atividade registrada.</p>
+        </div>
+
+    </section>
+
+</div>
+
+<footer>
+    <p>FITNESS © 2026</p>
+    <p>Projeto de Desenvolvimento de Sistemas</p>
+</footer>
+
+<script>
+
+// CARREGAR DADOS
+let atividades = JSON.parse(
+    localStorage.getItem("atividades") || "[]"
+);
+
+let metaDiaria = Number(
+    localStorage.getItem("metaDiaria")
+) || 30;
+
+
+// REGISTRAR ATIVIDADE
+function registrarAtividade() {
+
+    let tipo = document.getElementById("tipo").value;
+
+    let duracao = Number(
+        document.getElementById("duracao").value
+    );
+
+    if (!Number.isInteger(duracao) ||
+        duracao < 1 || duracao > 600) {
+
+        alert("Digite uma duração válida!");
+        return;
+    }
+
+    let atividade = {
+        tipo: tipo,
+        duracao: duracao,
+        data: new Date().toLocaleDateString("pt-BR"),
+        dia: new Date().toLocaleDateString("en-CA")
+    };
+
+    atividades.push(atividade);
+
+    salvarDados();
+
+    document.getElementById("duracao").value = "";
+
+    atualizarSistema();
+
+    alert("Atividade cadastrada com sucesso!");
+}
+
+
+// ATUALIZAR META
+function atualizarMeta() {
+
+    let novaMeta = Number(
+        document.getElementById("meta").value
+    );
+
+    if (!Number.isInteger(novaMeta) ||
+        novaMeta < 1 || novaMeta > 600) {
+
+        alert("Digite uma meta entre 1 e 600 minutos!");
+        return;
+    }
+
+    metaDiaria = novaMeta;
+
+    salvarDados();
+
+    atualizarSistema();
+
+    alert("Meta atualizada com sucesso!");
+}
+
+
+// EXCLUIR ATIVIDADE
+function excluirAtividade(indice) {
+
+    if (confirm("Deseja excluir esta atividade?")) {
+
+        atividades.splice(indice, 1);
+
+        salvarDados();
+
+        atualizarSistema();
+    }
+}
+
+
+// SALVAR DADOS
+function salvarDados() {
+
+    localStorage.setItem(
+        "atividades",
+        JSON.stringify(atividades)
+    );
+
+    localStorage.setItem(
+        "metaDiaria",
+        metaDiaria
+    );
+}
+
+
+// ATUALIZAR SISTEMA
+function atualizarSistema() {
+
+    let totalMinutos = atividades.reduce(
+        (soma, item) => soma + item.duracao, 0
+    );
+
+    let hoje = new Date().toLocaleDateString("en-CA");
+
+    let minutosHoje = atividades
+        .filter(item => item.dia === hoje)
+        .reduce((soma, item) => soma + item.duracao, 0);
+
+    document.getElementById("total").innerText =
+        atividades.length;
+
+    document.getElementById("minutos").innerText =
+        totalMinutos;
+
+    document.getElementById("metaResumo").innerText =
+        metaDiaria;
+
+    document.getElementById("meta").value =
+        metaDiaria;
+
+    // PROGRESSO
+    let porcentagem = Math.min(
+        (minutosHoje / metaDiaria) * 100, 100
+    );
+
+    document.getElementById("barra").style.width =
+        porcentagem + "%";
+
+    if (minutosHoje >= metaDiaria) {
+        document.getElementById("mensagem").innerText =
+            "🎉 Parabéns! Você alcançou sua meta!";
+    } else {
+        document.getElementById("mensagem").innerText =
+            "Faltam " + (metaDiaria - minutosHoje) +
+            " minutos para sua meta de hoje.";
+    }
+
+    // HISTÓRICO
+    let historico = document.getElementById("historico");
+
+    historico.innerHTML = "";
+
+    if (atividades.length === 0) {
+        historico.innerHTML =
+            "<p>Nenhuma atividade registrada.</p>";
+        return;
+    }
+
+    atividades.forEach((item, indice) => {
+
+        historico.innerHTML += `
+            <div class="atividade">
+
+                <div>
+                    <strong>${item.tipo}</strong>
+                    <p>${item.duracao} minutos</p>
+                    <small>${item.data}</small>
+                </div>
+
+                <button class="excluir"
+                    onclick="excluirAtividade(${indice})">
+                    Excluir
+                </button>
+
+            </div>
+        `;
+
+    });
+
+}
+
+// INICIAR SISTEMA
+atualizarSistema();
+
+</script>
+
+</body>
+</html>

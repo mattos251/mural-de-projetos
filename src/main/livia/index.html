@@ -1,0 +1,642 @@
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Livia Beauty Belle - Salão de Beleza</title>
+
+<style>
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+
+body {
+    background: #FAF7FF;
+    color: #51465E;
+}
+
+/* CABEÇALHO */
+header {
+    background: rgba(192, 132, 252, 0.65);
+    color: white;
+    text-align: center;
+    padding: 30px;
+}
+
+header h1 {
+    font-size: 32px;
+    margin-bottom: 8px;
+}
+
+/* MENU */
+nav {
+    background: rgba(255,255,255,0.75);
+    padding: 18px;
+    text-align: center;
+    box-shadow: 0 3px 12px rgba(150,100,190,0.08);
+}
+
+nav a {
+    text-decoration: none;
+    color: #9871B8;
+    font-weight: bold;
+    margin: 12px;
+    transition: 0.3s;
+}
+
+nav a:hover {
+    color: #7544A1;
+}
+
+/* CONTAINER */
+.container {
+    max-width: 1100px;
+    margin: 30px auto;
+    padding: 15px;
+}
+
+h2 {
+    color: #A77BCB;
+    margin-bottom: 18px;
+}
+
+/* DASHBOARD */
+.dashboard {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 18px;
+    margin-bottom: 30px;
+}
+
+.card {
+    background: rgba(218, 190, 245, 0.25);
+    padding: 25px;
+    border-radius: 16px;
+    text-align: center;
+    border: 1px solid rgba(190,150,220,0.2);
+    box-shadow: 0 5px 15px rgba(150,100,190,0.06);
+}
+
+.card h3 {
+    color: #9871B8;
+    margin-bottom: 12px;
+}
+
+.card p {
+    font-size: 28px;
+    font-weight: bold;
+    color: #78549B;
+}
+
+/* SEÇÕES */
+.secao {
+    background: rgba(255,255,255,0.85);
+    padding: 25px;
+    margin-bottom: 25px;
+    border-radius: 16px;
+    border: 1px solid rgba(190,150,220,0.2);
+    box-shadow: 0 5px 18px rgba(150,100,190,0.07);
+}
+
+/* FORMULÁRIOS */
+form {
+    display: grid;
+    gap: 13px;
+}
+
+input, select {
+    width: 100%;
+    padding: 13px;
+    border: 1px solid rgba(175,140,205,0.35);
+    border-radius: 9px;
+    background: rgba(248,242,255,0.7);
+    color: #51465E;
+    font-size: 15px;
+    outline: none;
+}
+
+input:focus, select:focus {
+    border-color: #B68BD8;
+    box-shadow: 0 0 0 3px rgba(182,139,216,0.12);
+}
+
+/* BOTÕES */
+button {
+    background: rgba(192,132,252,0.75);
+    color: white;
+    border: none;
+    padding: 13px;
+    border-radius: 9px;
+    cursor: pointer;
+    font-size: 15px;
+    font-weight: bold;
+    transition: 0.3s;
+}
+
+button:hover {
+    background: rgba(147,85,200,0.9);
+    transform: translateY(-1px);
+}
+
+/* TABELAS */
+.table-container {
+    width: 100%;
+    overflow-x: auto;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 18px;
+    min-width: 500px;
+}
+
+th, td {
+    padding: 13px;
+    border-bottom: 1px solid #F0E7F7;
+    text-align: left;
+}
+
+th {
+    background: rgba(220,195,245,0.35);
+    color: #8963AB;
+}
+
+tr:hover {
+    background: rgba(230,210,250,0.15);
+}
+
+/* BOTÃO EXCLUIR */
+.excluir {
+    background: rgba(220,120,150,0.75);
+    padding: 8px 12px;
+}
+
+.excluir:hover {
+    background: #C65F83;
+}
+
+/* RODAPÉ */
+footer {
+    background: rgba(167,123,203,0.8);
+    color: white;
+    text-align: center;
+    padding: 22px;
+    margin-top: 35px;
+}
+
+/* RESPONSIVIDADE */
+@media(max-width:600px) {
+    nav a {
+        display: inline-block;
+        margin: 8px;
+    }
+
+    header h1 {
+        font-size: 26px;
+    }
+
+    .secao {
+        padding: 18px;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<header>
+    <h1>💜 Livia Beauty Belle</h1>
+    <p>Sistema de Gestão para Salão de Beleza</p>
+</header>
+
+<nav>
+    <a href="#clientes">Clientes</a>
+    <a href="#agendamento">Agendamento</a>
+    <a href="#servicos">Serviços</a>
+    <a href="#consultar">Consultas</a>
+</nav>
+
+<div class="container">
+
+    <!-- PAINEL -->
+    <h2>📊 Painel Principal</h2>
+
+    <div class="dashboard">
+
+        <div class="card">
+            <h3>Clientes</h3>
+            <p id="totalClientes">0</p>
+        </div>
+
+        <div class="card">
+            <h3>Agendamentos</h3>
+            <p id="totalAgendamentos">0</p>
+        </div>
+
+        <div class="card">
+            <h3>Serviços</h3>
+            <p id="totalServicos">0</p>
+        </div>
+
+    </div>
+
+    <!-- CLIENTES -->
+    <section class="secao" id="clientes">
+
+        <h2>👤 Cadastro de Clientes</h2>
+
+        <form id="formCliente">
+
+            <input type="text" id="nomeCliente"
+            placeholder="Nome do cliente" required>
+
+            <input type="tel" id="telefoneCliente"
+            placeholder="Telefone" required>
+
+            <button type="submit">Cadastrar Cliente</button>
+
+        </form>
+
+        <h3 style="margin-top:20px">Clientes cadastrados</h3>
+
+        <div class="table-container">
+        <table>
+            <thead>
+                <tr>
+                    <th>Nome</th>
+                    <th>Telefone</th>
+                    <th>Ação</th>
+                </tr>
+            </thead>
+            <tbody id="listaClientes"></tbody>
+        </table>
+        </div>
+
+    </section>
+
+    <!-- SERVIÇOS -->
+    <section class="secao" id="servicos">
+
+        <h2>✂️ Cadastro de Serviços</h2>
+
+        <form id="formServico">
+
+            <input type="text" id="nomeServico"
+            placeholder="Nome do serviço" required>
+
+            <input type="number" id="precoServico"
+            placeholder="Preço (R$)" min="0.01" step="0.01" required>
+
+            <button type="submit">Adicionar Serviço</button>
+
+        </form>
+
+        <h3 style="margin-top:20px">Serviços disponíveis</h3>
+
+        <div class="table-container">
+        <table>
+            <thead>
+                <tr>
+                    <th>Serviço</th>
+                    <th>Preço</th>
+                    <th>Ação</th>
+                </tr>
+            </thead>
+            <tbody id="listaServicos"></tbody>
+        </table>
+        </div>
+
+    </section>
+
+    <!-- AGENDAMENTO -->
+    <section class="secao" id="agendamento">
+
+        <h2>📅 Agendar Atendimento</h2>
+
+        <form id="formAgendamento">
+
+            <select id="clienteAgendamento" required>
+                <option value="">Selecione o cliente</option>
+            </select>
+
+            <select id="servicoAgendamento" required>
+                <option value="">Selecione o serviço</option>
+            </select>
+
+            <input type="date" id="dataAgendamento" required>
+
+            <input type="time" id="horaAgendamento" required>
+
+            <button type="submit">Confirmar Agendamento</button>
+
+        </form>
+
+    </section>
+
+    <!-- CONSULTAS -->
+    <section class="secao" id="consultar">
+
+        <h2>📋 Consultar Agendamentos</h2>
+
+        <div class="table-container">
+        <table>
+            <thead>
+                <tr>
+                    <th>Cliente</th>
+                    <th>Serviço</th>
+                    <th>Data</th>
+                    <th>Horário</th>
+                    <th>Ação</th>
+                </tr>
+            </thead>
+            <tbody id="listaAgendamentos"></tbody>
+        </table>
+        </div>
+
+    </section>
+
+</div>
+
+<footer>
+    <p>BeautyTech © 2026 - Sistema de Gestão para Salão de Beleza</p>
+</footer>
+
+<script>
+
+// CARREGAR DADOS
+let clientes = JSON.parse(localStorage.getItem("clientes")) || [];
+
+let servicos = JSON.parse(localStorage.getItem("servicos")) || [
+    {id: 1, nome: "Corte de cabelo", preco: 35},
+    {id: 2, nome: "Escova", preco: 40},
+    {id: 3, nome: "Hidratação", preco: 60}
+];
+
+let agendamentos = JSON.parse(localStorage.getItem("agendamentos")) || [];
+
+let proximoId = Math.max(0, ...servicos.map(s => s.id)) + 1;
+
+// SALVAR DADOS
+function salvarDados() {
+    localStorage.setItem("clientes", JSON.stringify(clientes));
+    localStorage.setItem("servicos", JSON.stringify(servicos));
+    localStorage.setItem("agendamentos", JSON.stringify(agendamentos));
+}
+
+// PROTEGER TEXTOS
+function escapar(texto) {
+    return String(texto).replace(/[&<>"']/g, letra => ({
+        "&": "&amp;",
+        "<": "&lt;",
+        ">": "&gt;",
+        '"': "&quot;",
+        "'": "&#39;"
+    })[letra]);
+}
+
+// CADASTRAR CLIENTE
+document.getElementById("formCliente")
+.addEventListener("submit", function(e) {
+
+    e.preventDefault();
+
+    let nome = document.getElementById("nomeCliente").value.trim();
+    let telefone = document.getElementById("telefoneCliente").value.trim();
+
+    if (!nome || !telefone) return;
+
+    clientes.push({
+        id: Date.now(),
+        nome,
+        telefone
+    });
+
+    salvarDados();
+    atualizarTela();
+
+    this.reset();
+
+    alert("Cliente cadastrado com sucesso!");
+
+});
+
+// CADASTRAR SERVIÇO
+document.getElementById("formServico")
+.addEventListener("submit", function(e) {
+
+    e.preventDefault();
+
+    let nome = document.getElementById("nomeServico").value.trim();
+    let preco = Number(document.getElementById("precoServico").value);
+
+    if (!nome || !Number.isFinite(preco) || preco <= 0) return;
+
+    servicos.push({
+        id: proximoId++,
+        nome,
+        preco
+    });
+
+    salvarDados();
+    atualizarTela();
+
+    this.reset();
+
+    alert("Serviço cadastrado com sucesso!");
+
+});
+
+// AGENDAR
+document.getElementById("formAgendamento")
+.addEventListener("submit", function(e) {
+
+    e.preventDefault();
+
+    let clienteId = Number(document.getElementById("clienteAgendamento").value);
+    let servicoId = Number(document.getElementById("servicoAgendamento").value);
+
+    let data = document.getElementById("dataAgendamento").value;
+    let hora = document.getElementById("horaAgendamento").value;
+
+    let cliente = clientes.find(c => c.id === clienteId);
+    let servico = servicos.find(s => s.id === servicoId);
+
+    if (!cliente || !servico || !data || !hora) {
+        alert("Preencha todos os campos!");
+        return;
+    }
+
+    let hoje = new Date();
+    hoje.setHours(0,0,0,0);
+
+    let dataEscolhida = new Date(data + "T00:00:00");
+
+    if (dataEscolhida < hoje) {
+        alert("Escolha uma data de hoje ou futura!");
+        return;
+    }
+
+    let ocupado = agendamentos.some(a =>
+        a.data === data && a.hora === hora
+    );
+
+    if (ocupado) {
+        alert("Este horário já está ocupado!");
+        return;
+    }
+
+    agendamentos.push({
+        id: Date.now(),
+        clienteId,
+        servicoId,
+        data,
+        hora
+    });
+
+    salvarDados();
+    atualizarTela();
+
+    this.reset();
+
+    alert("Agendamento realizado com sucesso!");
+
+});
+
+// EXCLUIR CLIENTE
+function excluirCliente(id) {
+
+    if (agendamentos.some(a => a.clienteId === id)) {
+        alert("Este cliente possui agendamentos. Cancele-os primeiro.");
+        return;
+    }
+
+    if (!confirm("Deseja excluir este cliente?")) return;
+
+    clientes = clientes.filter(c => c.id !== id);
+
+    salvarDados();
+    atualizarTela();
+}
+
+// EXCLUIR SERVIÇO
+function excluirServico(id) {
+
+    if (agendamentos.some(a => a.servicoId === id)) {
+        alert("Este serviço possui agendamentos. Cancele-os primeiro.");
+        return;
+    }
+
+    if (!confirm("Deseja excluir este serviço?")) return;
+
+    servicos = servicos.filter(s => s.id !== id);
+
+    salvarDados();
+    atualizarTela();
+}
+
+// CANCELAR AGENDAMENTO
+function cancelarAgendamento(id) {
+
+    if (!confirm("Deseja cancelar este agendamento?")) return;
+
+    agendamentos = agendamentos.filter(a => a.id !== id);
+
+    salvarDados();
+    atualizarTela();
+}
+
+// ATUALIZAR SISTEMA
+function atualizarTela() {
+
+    document.getElementById("totalClientes").textContent = clientes.length;
+
+    document.getElementById("totalAgendamentos").textContent = agendamentos.length;
+
+    document.getElementById("totalServicos").textContent = servicos.length;
+
+    // CLIENTES
+    document.getElementById("listaClientes").innerHTML =
+        clientes.map(c => `
+            <tr>
+                <td>${escapar(c.nome)}</td>
+                <td>${escapar(c.telefone)}</td>
+                <td>
+                    <button class="excluir"
+                    onclick="excluirCliente(${c.id})">
+                    Excluir
+                    </button>
+                </td>
+            </tr>
+        `).join("");
+
+    // SERVIÇOS
+    document.getElementById("listaServicos").innerHTML =
+        servicos.map(s => `
+            <tr>
+                <td>${escapar(s.nome)}</td>
+                <td>R$ ${s.preco.toFixed(2).replace(".", ",")}</td>
+                <td>
+                    <button class="excluir"
+                    onclick="excluirServico(${s.id})">
+                    Excluir
+                    </button>
+                </td>
+            </tr>
+        `).join("");
+
+    // OPÇÕES DE CLIENTES
+    document.getElementById("clienteAgendamento").innerHTML =
+        '<option value="">Selecione o cliente</option>' +
+        clientes.map(c => `
+            <option value="${c.id}">
+                ${escapar(c.nome)}
+            </option>
+        `).join("");
+
+    // OPÇÕES DE SERVIÇOS
+    document.getElementById("servicoAgendamento").innerHTML =
+        '<option value="">Selecione o serviço</option>' +
+        servicos.map(s => `
+            <option value="${s.id}">
+                ${escapar(s.nome)} - R$ ${s.preco.toFixed(2)}
+            </option>
+        `).join("");
+
+    // AGENDAMENTOS
+    document.getElementById("listaAgendamentos").innerHTML =
+        agendamentos.map(a => {
+
+            let cliente = clientes.find(c => c.id === a.clienteId);
+            let servico = servicos.find(s => s.id === a.servicoId);
+
+            return `
+                <tr>
+                    <td>${escapar(cliente?.nome || "Cliente não encontrado")}</td>
+                    <td>${escapar(servico?.nome || "Serviço não encontrado")}</td>
+                    <td>${a.data.split("-").reverse().join("/")}</td>
+                    <td>${escapar(a.hora)}</td>
+                    <td>
+                        <button class="excluir"
+                        onclick="cancelarAgendamento(${a.id})">
+                        Cancelar
+                        </button>
+                    </td>
+                </tr>
+            `;
+
+        }).join("");
+
+}
+
+// INICIAR SISTEMA
+atualizarTela();
+
+</script>
+
+</body>
+</html>

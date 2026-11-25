@@ -1,0 +1,746 @@
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>RAIÉ Beauty | Beleza e Autocuidado</title>
+
+    <!-- Fonte cursiva Bold Script -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Dancing Script', cursive;
+            font-weight: 700;
+        }
+
+        body {
+            background: #D8C5F0;
+            color: #3e3150;
+            line-height: 1.6;
+            font-size: 19px;
+        }
+
+        header {
+            background: #BFA0E3;
+            padding: 20px 7%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 15px;
+        }
+
+        .logo {
+            color: #583477;
+            font-size: 38px;
+            font-weight: 700;
+        }
+
+        nav {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 18px;
+        }
+
+        nav a {
+            color: #3e3150;
+            text-decoration: none;
+            font-size: 23px;
+            font-weight: 700;
+        }
+
+        nav a:hover {
+            color: white;
+        }
+
+        .banner {
+            text-align: center;
+            padding: 75px 20px;
+            background: linear-gradient(
+                135deg,
+                #C4A6E8,
+                #E9DDF5,
+                #D8C5F0
+            );
+        }
+
+        .banner h1 {
+            font-size: 55px;
+            color: #583477;
+            margin-bottom: 15px;
+        }
+
+        .banner p {
+            font-size: 27px;
+            margin-bottom: 25px;
+        }
+
+        .botao {
+            display: inline-block;
+            background: #8955B5;
+            color: white;
+            padding: 12px 25px;
+            border: none;
+            border-radius: 25px;
+            text-decoration: none;
+            cursor: pointer;
+            font-size: 22px;
+            font-weight: 700;
+        }
+
+        .botao:hover {
+            background: #583477;
+        }
+
+        section {
+            padding: 55px 7%;
+        }
+
+        .titulo {
+            text-align: center;
+            color: #583477;
+            font-size: 43px;
+            margin-bottom: 30px;
+        }
+
+        .texto-intro {
+            text-align: center;
+            max-width: 750px;
+            margin: 0 auto 30px;
+            font-size: 23px;
+        }
+
+        .cards {
+            display: grid;
+            grid-template-columns: repeat(
+                auto-fit,
+                minmax(220px, 1fr)
+            );
+            gap: 22px;
+        }
+
+        .card {
+            background: white;
+            padding: 23px;
+            border-radius: 15px;
+            box-shadow: 0 5px 15px #9C7DBD;
+            text-align: center;
+        }
+
+        .card h3 {
+            color: #704493;
+            margin-bottom: 10px;
+            font-size: 29px;
+        }
+
+        .emoji {
+            font-size: 45px;
+            margin-bottom: 10px;
+        }
+
+        .card p {
+            margin-bottom: 15px;
+            font-size: 21px;
+        }
+
+        .favorito {
+            background: #f3eafa;
+            color: #583477;
+            border: 1px solid #BFA0E3;
+            padding: 8px 15px;
+            border-radius: 20px;
+            cursor: pointer;
+            font-size: 19px;
+        }
+
+        .favorito.ativo {
+            background: #8955B5;
+            color: white;
+        }
+
+        .controles {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 12px;
+            margin-bottom: 25px;
+        }
+
+        input, select {
+            padding: 12px;
+            border: 1px solid #BFA0E3;
+            border-radius: 10px;
+            font-size: 19px;
+            max-width: 100%;
+            font-family: 'Dancing Script', cursive;
+            font-weight: 700;
+        }
+
+        input::placeholder {
+            font-family: 'Dancing Script', cursive;
+        }
+
+        .preco {
+            color: #704493;
+            font-size: 25px;
+            font-weight: bold;
+            margin: 10px 0;
+        }
+
+        .rotina {
+            max-width: 700px;
+            margin: auto;
+            background: white;
+            padding: 25px;
+            border-radius: 15px;
+            box-shadow: 0 5px 15px #9C7DBD;
+        }
+
+        .adicionar-tarefa {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 20px;
+        }
+
+        .adicionar-tarefa input {
+            flex: 1;
+            min-width: 0;
+        }
+
+        #listaTarefas {
+            list-style: none;
+        }
+
+        #listaTarefas li {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 10px;
+            padding: 12px;
+            border-bottom: 1px solid #e5d9f1;
+            font-size: 21px;
+        }
+
+        #listaTarefas li.concluida span {
+            text-decoration: line-through;
+            color: #888;
+        }
+
+        .acoes-tarefa {
+            display: flex;
+            gap: 8px;
+        }
+
+        .acoes-tarefa button {
+            border: none;
+            border-radius: 8px;
+            padding: 7px 10px;
+            cursor: pointer;
+            font-size: 17px;
+        }
+
+        .concluir {
+            background: #d9c5ec;
+        }
+
+        .excluir {
+            background: #f4d5df;
+        }
+
+        #mensagem {
+            text-align: center;
+            color: #704493;
+            margin-top: 15px;
+            font-size: 21px;
+        }
+
+        footer {
+            background: #BFA0E3;
+            text-align: center;
+            padding: 25px;
+            color: #583477;
+            font-size: 23px;
+        }
+
+        @media (max-width: 600px) {
+            header {
+                justify-content: center;
+                text-align: center;
+            }
+
+            nav {
+                justify-content: center;
+            }
+
+            .banner h1 {
+                font-size: 40px;
+            }
+
+            .banner p {
+                font-size: 23px;
+            }
+
+            .titulo {
+                font-size: 35px;
+            }
+
+            .adicionar-tarefa {
+                flex-direction: column;
+            }
+
+            #listaTarefas li {
+                flex-wrap: wrap;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <header>
+        <div class="logo">RAIÉ Beauty ✨</div>
+
+        <nav>
+            <a href="#inicio">Início</a>
+            <a href="#dicas">Dicas</a>
+            <a href="#rotina">Minha rotina</a>
+            <a href="#produtos">Produtos</a>
+            <a href="#favoritos">Favoritos</a>
+        </nav>
+    </header>
+
+    <main>
+
+        <section class="banner" id="inicio">
+            <h1>Bem-vinda ao BeautyCare!</h1>
+            <p>Seu espaço para beleza, bem-estar e autocuidado.</p>
+            <a href="#dicas" class="botao">Começar agora</a>
+        </section>
+
+        <section id="dicas">
+            <h2 class="titulo">Dicas de Beleza e Autocuidado 🌷</h2>
+
+            <p class="texto-intro">
+                Pequenos momentos de cuidado podem fazer parte
+                de uma rotina mais leve e agradável.
+                Confira algumas dicas!
+            </p>
+
+            <div class="cards" id="listaDicas"></div>
+        </section>
+
+        <section id="rotina">
+            <h2 class="titulo">Minha Rotina de Autocuidado 💜</h2>
+
+            <p class="texto-intro">
+                Organize suas atividades e acompanhe
+                as tarefas que você já concluiu.
+            </p>
+
+            <div class="rotina">
+
+                <div class="adicionar-tarefa">
+                    <input
+                        type="text"
+                        id="novaTarefa"
+                        placeholder="Digite uma atividade..."
+                    >
+
+                    <button class="botao" onclick="adicionarTarefa()">
+                        Adicionar
+                    </button>
+                </div>
+
+                <ul id="listaTarefas"></ul>
+
+                <p id="mensagem"></p>
+
+            </div>
+        </section>
+
+        <section id="produtos">
+            <h2 class="titulo">Catálogo de Produtos 💄</h2>
+
+            <p class="texto-intro">
+                Conheça produtos de maquiagem, cabelo,
+                pele, unhas e salão.
+            </p>
+
+            <div class="controles">
+
+                <input
+                    type="text"
+                    id="pesquisa"
+                    placeholder="Pesquisar produto..."
+                    oninput="filtrarProdutos()"
+                >
+
+                <select
+                    id="categoria"
+                    onchange="filtrarProdutos()"
+                >
+                    <option value="todos">Todas as categorias</option>
+                    <option value="Maquiagem">Maquiagem</option>
+                    <option value="Cabelo">Cabelo</option>
+                    <option value="Unhas">Unhas</option>
+                    <option value="Salão">Salão</option>
+                    <option value="Pele">Pele</option>
+                </select>
+
+            </div>
+
+            <div class="cards" id="listaProdutos"></div>
+        </section>
+
+        <section id="favoritos">
+            <h2 class="titulo">Minhas Dicas Favoritas ⭐</h2>
+
+            <p class="texto-intro">
+                Aqui ficam as dicas que você marcou como favoritas.
+            </p>
+
+            <div class="cards" id="listaFavoritos"></div>
+        </section>
+
+    </main>
+
+    <footer>
+        <p>© 2026 BeautyCare - Beleza, cuidado e bem-estar.</p>
+        <p>Cuide de você com carinho! 💜</p>
+    </footer>
+
+    <script>
+
+        // DICAS DE BELEZA
+
+        const dicas = [
+            {
+                titulo: "Cuidados com a pele",
+                emoji: "🧴",
+                descricao: "Mantenha uma rotina simples de limpeza, hidratação e proteção solar."
+            },
+            {
+                titulo: "Cuidados com o cabelo",
+                emoji: "💇‍♀️",
+                descricao: "Escolha produtos adequados ao seu tipo de cabelo e mantenha os cuidados."
+            },
+            {
+                titulo: "Bem-estar",
+                emoji: "🌸",
+                descricao: "Reserve momentos para descansar, relaxar e fazer atividades de que gosta."
+            },
+            {
+                titulo: "Cuidados com as unhas",
+                emoji: "💅",
+                descricao: "Mantenha as unhas limpas e hidratadas e evite compartilhar instrumentos."
+            },
+            {
+                titulo: "Hidratação",
+                emoji: "💧",
+                descricao: "Beba água ao longo do dia e cuide da hidratação da pele."
+            },
+            {
+                titulo: "Autocuidado",
+                emoji: "🛁",
+                descricao: "Crie momentos agradáveis para cuidar de si e relaxar."
+            }
+        ];
+
+        let favoritos = JSON.parse(
+            localStorage.getItem("beautycareFavoritos")
+        ) || [];
+
+        function salvarFavoritos() {
+            localStorage.setItem(
+                "beautycareFavoritos",
+                JSON.stringify(favoritos)
+            );
+        }
+
+        function mostrarDicas() {
+            const lista = document.getElementById("listaDicas");
+
+            lista.innerHTML = dicas.map((dica, index) => `
+                <div class="card">
+                    <div class="emoji">${dica.emoji}</div>
+
+                    <h3>${dica.titulo}</h3>
+
+                    <p>${dica.descricao}</p>
+
+                    <button
+                        class="favorito ${favoritos.includes(index) ? "ativo" : ""}"
+                        onclick="alternarFavorito(${index})"
+                    >
+                        ${favoritos.includes(index) ? "★ Favoritado" : "☆ Favoritar"}
+                    </button>
+                </div>
+            `).join("");
+
+            mostrarFavoritos();
+        }
+
+        function alternarFavorito(index) {
+            if (favoritos.includes(index)) {
+                favoritos = favoritos.filter(
+                    item => item !== index
+                );
+            } else {
+                favoritos.push(index);
+            }
+
+            salvarFavoritos();
+            mostrarDicas();
+        }
+
+        function mostrarFavoritos() {
+            const lista = document.getElementById("listaFavoritos");
+
+            const selecionados = dicas.filter(
+                (dica, index) => favoritos.includes(index)
+            );
+
+            if (selecionados.length === 0) {
+                lista.innerHTML = `
+                    <div class="card">
+                        <p>Você ainda não adicionou dicas aos favoritos.</p>
+                    </div>
+                `;
+                return;
+            }
+
+            lista.innerHTML = selecionados.map(dica => `
+                <div class="card">
+                    <div class="emoji">${dica.emoji}</div>
+                    <h3>${dica.titulo}</h3>
+                    <p>${dica.descricao}</p>
+                </div>
+            `).join("");
+        }
+
+        // ROTINA DE AUTOCUIDADO
+
+        let tarefas = JSON.parse(
+            localStorage.getItem("beautycareTarefas")
+        ) || [];
+
+        function salvarTarefas() {
+            localStorage.setItem(
+                "beautycareTarefas",
+                JSON.stringify(tarefas)
+            );
+        }
+
+        function mostrarTarefas() {
+            const lista = document.getElementById("listaTarefas");
+            const mensagem = document.getElementById("mensagem");
+
+            if (tarefas.length === 0) {
+                lista.innerHTML =
+                    "<li>Nenhuma atividade adicionada.</li>";
+
+                mensagem.textContent = "";
+                return;
+            }
+
+            lista.innerHTML = tarefas.map((tarefa, index) => `
+                <li class="${tarefa.concluida ? "concluida" : ""}">
+                    <span>${escaparHTML(tarefa.nome)}</span>
+
+                    <div class="acoes-tarefa">
+
+                        <button
+                            class="concluir"
+                            onclick="alternarTarefa(${index})"
+                        >
+                            ${tarefa.concluida ? "Desfazer" : "Concluir"}
+                        </button>
+
+                        <button
+                            class="excluir"
+                            onclick="excluirTarefa(${index})"
+                        >
+                            Excluir
+                        </button>
+
+                    </div>
+                </li>
+            `).join("");
+
+            const concluidas = tarefas.filter(
+                tarefa => tarefa.concluida
+            ).length;
+
+            mensagem.textContent =
+                `${concluidas} de ${tarefas.length} atividades concluídas.`;
+        }
+
+        function adicionarTarefa() {
+            const campo = document.getElementById("novaTarefa");
+            const nome = campo.value.trim();
+
+            if (nome === "") {
+                alert("Digite uma atividade antes de adicionar.");
+                return;
+            }
+
+            tarefas.push({
+                nome: nome,
+                concluida: false
+            });
+
+            campo.value = "";
+
+            salvarTarefas();
+            mostrarTarefas();
+        }
+
+        function alternarTarefa(index) {
+            tarefas[index].concluida =
+                !tarefas[index].concluida;
+
+            salvarTarefas();
+            mostrarTarefas();
+        }
+
+        function excluirTarefa(index) {
+            tarefas.splice(index, 1);
+
+            salvarTarefas();
+            mostrarTarefas();
+        }
+
+        // CATÁLOGO DE PRODUTOS
+
+        const produtos = [
+            { nome: "Batom Matte", categoria: "Maquiagem", preco: 29.90, emoji: "💄" },
+            { nome: "Base Líquida", categoria: "Maquiagem", preco: 49.90, emoji: "🧴" },
+            { nome: "Paleta de Sombras", categoria: "Maquiagem", preco: 59.90, emoji: "🎨" },
+            { nome: "Máscara de Cílios", categoria: "Maquiagem", preco: 34.90, emoji: "👁️" },
+            { nome: "Blush", categoria: "Maquiagem", preco: 27.90, emoji: "🌸" },
+            { nome: "Pincéis de Maquiagem", categoria: "Maquiagem", preco: 39.90, emoji: "🖌️" },
+
+            { nome: "Shampoo", categoria: "Cabelo", preco: 24.90, emoji: "🧴" },
+            { nome: "Condicionador", categoria: "Cabelo", preco: 26.90, emoji: "🫧" },
+            { nome: "Máscara Capilar", categoria: "Cabelo", preco: 39.90, emoji: "🧖‍♀️" },
+            { nome: "Óleo Capilar", categoria: "Cabelo", preco: 32.90, emoji: "💧" },
+
+            { nome: "Esmalte", categoria: "Unhas", preco: 9.90, emoji: "💅" },
+            { nome: "Kit de Unhas", categoria: "Unhas", preco: 45.90, emoji: "✨" },
+
+            { nome: "Secador de Cabelo", categoria: "Salão", preco: 149.90, emoji: "💨" },
+            { nome: "Chapinha", categoria: "Salão", preco: 119.90, emoji: "💇‍♀️" },
+            { nome: "Escova Profissional", categoria: "Salão", preco: 39.90, emoji: "🪮" },
+
+            { nome: "Sabonete Facial", categoria: "Pele", preco: 22.90, emoji: "🧼" },
+            { nome: "Hidratante Facial", categoria: "Pele", preco: 42.90, emoji: "🌷" },
+            { nome: "Protetor Solar", categoria: "Pele", preco: 54.90, emoji: "☀️" }
+        ];
+
+        function mostrarProdutos(listaProdutos) {
+            const lista = document.getElementById("listaProdutos");
+
+            if (listaProdutos.length === 0) {
+                lista.innerHTML = `
+                    <div class="card">
+                        <p>Nenhum produto encontrado.</p>
+                    </div>
+                `;
+                return;
+            }
+
+            lista.innerHTML = listaProdutos.map(produto => `
+                <div class="card">
+                    <div class="emoji">${produto.emoji}</div>
+
+                    <h3>${produto.nome}</h3>
+
+                    <p>Categoria: ${produto.categoria}</p>
+
+                    <div class="preco">
+                        R$ ${produto.preco.toFixed(2).replace(".", ",")}
+                    </div>
+
+                    <button
+                        class="botao"
+                        onclick="verProduto('${produto.nome}')"
+                    >
+                        Ver produto
+                    </button>
+                </div>
+            `).join("");
+        }
+
+        function filtrarProdutos() {
+            const pesquisa = document
+                .getElementById("pesquisa")
+                .value
+                .toLowerCase()
+                .trim();
+
+            const categoria =
+                document.getElementById("categoria").value;
+
+            const filtrados = produtos.filter(produto => {
+                const nomeCorresponde = produto.nome
+                    .toLowerCase()
+                    .includes(pesquisa);
+
+                const categoriaCorresponde =
+                    categoria === "todos" ||
+                    produto.categoria === categoria;
+
+                return nomeCorresponde && categoriaCorresponde;
+            });
+
+            mostrarProdutos(filtrados);
+        }
+
+        function verProduto(nome) {
+            alert(
+                "Você selecionou: " + nome +
+                "\n\nEste é um catálogo demonstrativo do BeautyCare."
+            );
+        }
+
+        // PROTEÇÃO PARA TEXTO DIGITADO
+
+        function escaparHTML(texto) {
+            return String(texto).replace(/[&<>"']/g, caractere => ({
+                "&": "&amp;",
+                "<": "&lt;",
+                ">": "&gt;",
+                '"': "&quot;",
+                "'": "&#39;"
+            })[caractere]);
+        }
+
+        // INICIALIZAÇÃO DO SISTEMA
+
+        mostrarDicas();
+        mostrarTarefas();
+        mostrarProdutos(produtos);
+
+        // ADICIONAR TAREFA COM A TECLA ENTER
+
+        document.getElementById("novaTarefa").addEventListener(
+            "keydown",
+            function(evento) {
+                if (evento.key === "Enter") {
+                    adicionarTarefa();
+                }
+            }
+        );
+
+    </script>
+
+</body>
+</html>
