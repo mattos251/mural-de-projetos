@@ -1,0 +1,1735 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Iron Fit Academia. Treinamentos, musculação, planos e muito mais.">
+    <title>Iron Fit | Academia</title>
+
+    <style>
+        :root {
+            --verde: #a3ff12;
+            --verde-escuro: #75bd00;
+            --fundo: #0b0d0b;
+            --card: #181b18;
+            --card2: #202420;
+            --texto: #f5f5f5;
+            --cinza: #a9afa7;
+            --borda: #303630;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+            scroll-padding-top: 90px;
+        }
+
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            background: var(--fundo);
+            color: var(--texto);
+            line-height: 1.6;
+        }
+
+        img {
+            max-width: 100%;
+        }
+
+        a {
+            color: inherit;
+            text-decoration: none;
+        }
+
+        button, input, select, textarea {
+            font: inherit;
+        }
+
+        button {
+            cursor: pointer;
+        }
+
+        section {
+            padding: 85px 0;
+        }
+
+        .container {
+            width: min(1120px, 92%);
+            margin: auto;
+        }
+
+        .section-title {
+            font-size: clamp(28px, 4vw, 42px);
+            text-align: center;
+            line-height: 1.2;
+            margin-bottom: 18px;
+        }
+
+        .section-title span,
+        .verde {
+            color: var(--verde);
+        }
+
+        .section-description {
+            color: var(--cinza);
+            max-width: 680px;
+            text-align: center;
+            margin: 0 auto 40px;
+        }
+
+        .btn {
+            display: inline-flex;
+            justify-content: center;
+            align-items: center;
+            gap: 8px;
+            padding: 13px 22px;
+            border: 0;
+            border-radius: 6px;
+            background: var(--verde);
+            color: #101010;
+            font-weight: bold;
+            transition: .2s;
+        }
+
+        .btn:hover {
+            background: var(--verde-escuro);
+            transform: translateY(-2px);
+        }
+
+        .btn-outline {
+            background: transparent;
+            border: 1px solid var(--verde);
+            color: var(--verde);
+        }
+
+        .btn-outline:hover {
+            color: #111;
+        }
+
+        .tag {
+            display: inline-block;
+            padding: 6px 12px;
+            border-radius: 30px;
+            background: #27351a;
+            color: var(--verde);
+            font-size: 13px;
+            font-weight: bold;
+        }
+
+        /* CABEÇALHO */
+
+        header {
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            background: #0b0d0bf2;
+            border-bottom: 1px solid var(--borda);
+            backdrop-filter: blur(12px);
+        }
+
+        .navbar {
+            min-height: 76px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 25px;
+        }
+
+        .logo {
+            font-size: 26px;
+            font-weight: 900;
+            letter-spacing: -1px;
+            white-space: nowrap;
+        }
+
+        .logo span {
+            color: var(--verde);
+        }
+
+        .nav-links {
+            display: flex;
+            align-items: center;
+            gap: 22px;
+        }
+
+        .nav-links a {
+            color: #ddd;
+            font-size: 14px;
+        }
+
+        .nav-links a:hover {
+            color: var(--verde);
+        }
+
+        .menu-toggle {
+            display: none;
+            border: 1px solid var(--borda);
+            background: var(--card);
+            color: white;
+            padding: 8px 12px;
+            border-radius: 5px;
+        }
+
+        /* DESTAQUE */
+
+        .hero {
+            min-height: 620px;
+            display: flex;
+            align-items: center;
+            position: relative;
+            overflow: hidden;
+            background:
+                linear-gradient(90deg, #0b0d0b 8%, #0b0d0bdd 45%, #0b0d0b55),
+                url("https://images.unsplash.com/photo-1534438327276-14e5300c3a48?auto=format&fit=crop&w=1800&q=85")
+                center/cover;
+        }
+
+        .hero-content {
+            max-width: 670px;
+            padding: 80px 0;
+        }
+
+        .hero h1 {
+            font-size: clamp(42px, 7vw, 76px);
+            line-height: 1.02;
+            margin: 22px 0;
+            letter-spacing: -2px;
+        }
+
+        .hero h1 span {
+            color: var(--verde);
+        }
+
+        .hero p {
+            color: #d1d1d1;
+            font-size: 18px;
+            max-width: 540px;
+            margin-bottom: 30px;
+        }
+
+        .hero-buttons {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+        }
+
+        /* NÚMEROS */
+
+        .stats {
+            padding: 28px 0;
+            background: var(--verde);
+            color: #101010;
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 20px;
+            text-align: center;
+        }
+
+        .stat strong {
+            display: block;
+            font-size: 27px;
+        }
+
+        .stat span {
+            font-size: 14px;
+        }
+
+        /* SOBRE */
+
+        .about-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 45px;
+            align-items: center;
+        }
+
+        .about-image {
+            min-height: 350px;
+            border-radius: 14px;
+            background:
+                linear-gradient(0deg, #10101044, transparent),
+                url("https://images.unsplash.com/photo-1571902943202-507ec2618e8f?auto=format&fit=crop&w=1000&q=80")
+                center/cover;
+        }
+
+        .about-text h2 {
+            font-size: 36px;
+            line-height: 1.2;
+            margin: 18px 0;
+        }
+
+        .about-text p {
+            color: var(--cinza);
+            margin-bottom: 18px;
+        }
+
+        .check-list {
+            list-style: none;
+            margin: 20px 0 28px;
+        }
+
+        .check-list li {
+            padding: 7px 0;
+        }
+
+        .check-list li::before {
+            content: "✓";
+            color: var(--verde);
+            font-weight: bold;
+            margin-right: 10px;
+        }
+
+        /* PLANOS */
+
+        .plans-section,
+        .classes-section,
+        .schedule-section,
+        .testimonials-section,
+        .faq-section {
+            background: #121512;
+        }
+
+        .plans-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 22px;
+            align-items: stretch;
+        }
+
+        .plan-card {
+            background: var(--card);
+            border: 1px solid var(--borda);
+            padding: 30px;
+            border-radius: 12px;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .plan-card.featured {
+            border: 2px solid var(--verde);
+            transform: translateY(-8px);
+        }
+
+        .plan-card h3 {
+            font-size: 23px;
+            margin: 12px 0;
+        }
+
+        .plan-card .price {
+            font-size: 35px;
+            font-weight: 900;
+            color: var(--verde);
+            margin-bottom: 15px;
+        }
+
+        .plan-card .price small {
+            font-size: 14px;
+            color: var(--cinza);
+            font-weight: normal;
+        }
+
+        .plan-card p {
+            color: var(--cinza);
+            margin-bottom: 20px;
+        }
+
+        .plan-card ul {
+            list-style: none;
+            margin-bottom: 25px;
+            flex: 1;
+        }
+
+        .plan-card li {
+            padding: 8px 0;
+            border-bottom: 1px solid var(--borda);
+            color: #ddd;
+        }
+
+        .plan-card li::before {
+            content: "✓ ";
+            color: var(--verde);
+        }
+
+        .plan-card .btn {
+            width: 100%;
+        }
+
+        /* TREINAMENTOS */
+
+        .cards-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 22px;
+        }
+
+        .info-card {
+            background: var(--card);
+            border: 1px solid var(--borda);
+            border-radius: 10px;
+            padding: 25px;
+            transition: .2s;
+        }
+
+        .info-card:hover {
+            border-color: var(--verde);
+            transform: translateY(-4px);
+        }
+
+        .card-icon {
+            font-size: 32px;
+            margin-bottom: 12px;
+        }
+
+        .info-card h3 {
+            font-size: 21px;
+            margin-bottom: 10px;
+        }
+
+        .info-card p {
+            color: var(--cinza);
+        }
+
+        /* EXERCÍCIOS */
+
+        .exercise-tools {
+            display: flex;
+            gap: 12px;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin-bottom: 30px;
+        }
+
+        .exercise-tools input,
+        .exercise-tools select {
+            min-width: 220px;
+            padding: 12px;
+            background: var(--card);
+            color: white;
+            border: 1px solid var(--borda);
+            border-radius: 6px;
+        }
+
+        .exercise-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 18px;
+        }
+
+        .exercise-card {
+            background: var(--card);
+            border: 1px solid var(--borda);
+            padding: 22px;
+            border-radius: 10px;
+        }
+
+        .exercise-card h3 {
+            color: var(--verde);
+            margin-bottom: 8px;
+        }
+
+        .exercise-card p {
+            color: var(--cinza);
+            font-size: 14px;
+        }
+
+        .exercise-card .muscle {
+            display: inline-block;
+            margin-top: 12px;
+            font-size: 12px;
+            background: #292f26;
+            padding: 5px 10px;
+            border-radius: 20px;
+        }
+
+        .empty-state {
+            text-align: center;
+            color: var(--cinza);
+            padding: 30px;
+            display: none;
+        }
+
+        /* HORÁRIOS */
+
+        .schedule-table {
+            width: 100%;
+            border-collapse: collapse;
+            background: var(--card);
+            border-radius: 10px;
+            overflow: hidden;
+        }
+
+        .schedule-table th,
+        .schedule-table td {
+            padding: 16px;
+            text-align: left;
+            border-bottom: 1px solid var(--borda);
+        }
+
+        .schedule-table th {
+            background: #27351a;
+            color: var(--verde);
+        }
+
+        .schedule-table tr:last-child td {
+            border-bottom: none;
+        }
+
+        .schedule-note {
+            color: var(--cinza);
+            margin-top: 18px;
+            font-size: 14px;
+        }
+
+        /* MATRÍCULA */
+
+        .form-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 18px;
+        }
+
+        .form-box {
+            max-width: 750px;
+            margin: auto;
+            padding: 35px;
+            background: var(--card);
+            border: 1px solid var(--borda);
+            border-radius: 12px;
+        }
+
+        .form-group {
+            margin-bottom: 18px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 7px;
+            font-weight: bold;
+            font-size: 14px;
+        }
+
+        .form-group input,
+        .form-group select,
+        .form-group textarea {
+            width: 100%;
+            padding: 13px;
+            background: #101210;
+            border: 1px solid #3a403a;
+            border-radius: 6px;
+            color: white;
+            outline: none;
+        }
+
+        .form-group input:focus,
+        .form-group select:focus,
+        .form-group textarea:focus {
+            border-color: var(--verde);
+        }
+
+        .form-box .btn {
+            width: 100%;
+        }
+
+        .form-message {
+            margin-top: 18px;
+            color: var(--verde);
+            text-align: center;
+            font-weight: bold;
+        }
+
+        /* DEPOIMENTOS */
+
+        .testimonial {
+            background: var(--card);
+            border: 1px solid var(--borda);
+            padding: 25px;
+            border-radius: 10px;
+        }
+
+        .testimonial p {
+            color: #ddd;
+            margin-bottom: 15px;
+        }
+
+        .testimonial strong {
+            color: var(--verde);
+        }
+
+        /* FAQ */
+
+        .faq-list {
+            max-width: 800px;
+            margin: auto;
+        }
+
+        .faq-item {
+            background: var(--card);
+            border: 1px solid var(--borda);
+            border-radius: 8px;
+            margin-bottom: 12px;
+            overflow: hidden;
+        }
+
+        .faq-question {
+            width: 100%;
+            background: transparent;
+            border: none;
+            color: white;
+            text-align: left;
+            padding: 20px;
+            display: flex;
+            justify-content: space-between;
+            gap: 20px;
+            font-weight: bold;
+        }
+
+        .faq-answer {
+            display: none;
+            color: var(--cinza);
+            padding: 0 20px 20px;
+        }
+
+        .faq-item.open .faq-answer {
+            display: block;
+        }
+
+        .faq-item.open .faq-question {
+            color: var(--verde);
+        }
+
+        /* CONTATO */
+
+        .contact-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 35px;
+            align-items: start;
+        }
+
+        .contact-info p {
+            color: var(--cinza);
+            margin: 15px 0;
+        }
+
+        .contact-info strong {
+            color: white;
+        }
+
+        .contact-box {
+            background: var(--card);
+            border: 1px solid var(--borda);
+            border-radius: 10px;
+            padding: 25px;
+        }
+
+        /* ADMINISTRATIVO */
+
+        .admin-section {
+            background: #080a08;
+        }
+
+        .admin-warning {
+            text-align: center;
+            color: var(--cinza);
+            font-size: 14px;
+            margin: -20px auto 30px;
+            max-width: 700px;
+        }
+
+        .admin-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 18px;
+            margin-bottom: 30px;
+        }
+
+        .admin-card {
+            background: var(--card);
+            border: 1px solid var(--borda);
+            border-top: 3px solid var(--verde);
+            border-radius: 8px;
+            padding: 22px;
+        }
+
+        .admin-card p {
+            color: var(--cinza);
+            font-size: 14px;
+        }
+
+        .admin-card strong {
+            display: block;
+            font-size: 26px;
+            color: var(--verde);
+            margin-top: 10px;
+        }
+
+        .admin-form {
+            max-width: 650px;
+            margin: auto;
+        }
+
+        .admin-result {
+            text-align: center;
+            margin-top: 20px;
+            color: var(--verde);
+            font-size: 18px;
+            font-weight: bold;
+        }
+
+        /* RODAPÉ */
+
+        footer {
+            background: #050605;
+            padding: 35px 0;
+            text-align: center;
+            color: var(--cinza);
+            border-top: 1px solid var(--borda);
+        }
+
+        footer .logo {
+            display: inline-block;
+            margin-bottom: 12px;
+        }
+
+        footer p {
+            font-size: 13px;
+        }
+
+        /* RESPONSIVIDADE */
+
+        @media (max-width: 900px) {
+            .nav-links {
+                gap: 12px;
+            }
+
+            .nav-links a {
+                font-size: 12px;
+            }
+
+            .cards-grid,
+            .exercise-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .plans-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+
+            .plan-card.featured {
+                transform: none;
+            }
+        }
+
+        @media (max-width: 650px) {
+            section {
+                padding: 60px 0;
+            }
+
+            .navbar {
+                min-height: 70px;
+                flex-wrap: wrap;
+            }
+
+            .menu-toggle {
+                display: block;
+            }
+
+            .nav-links {
+                display: none;
+                width: 100%;
+                flex-direction: column;
+                align-items: stretch;
+                padding: 10px 0 20px;
+            }
+
+            .nav-links.active {
+                display: flex;
+            }
+
+            .nav-links a {
+                font-size: 15px;
+                padding: 8px 0;
+            }
+
+            .hero {
+                min-height: 530px;
+                background-position: 60% center;
+            }
+
+            .hero h1 {
+                letter-spacing: -1px;
+            }
+
+            .stats-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+
+            .about-grid,
+            .plans-grid,
+            .cards-grid,
+            .exercise-grid,
+            .form-grid,
+            .contact-grid,
+            .admin-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .about-image {
+                min-height: 250px;
+            }
+
+            .form-box {
+                padding: 22px;
+            }
+
+            .schedule-table th,
+            .schedule-table td {
+                padding: 11px 8px;
+                font-size: 13px;
+            }
+
+            .schedule-table {
+                font-size: 13px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- MENU PRINCIPAL -->
+    <header>
+        <div class="container navbar">
+            <a class="logo" href="#inicio">IRON <span>FIT</span></a>
+
+            <button class="menu-toggle" id="menuToggle"
+                    aria-label="Abrir menu" aria-expanded="false">
+                ☰ Menu
+            </button>
+
+            <nav class="nav-links" id="navLinks">
+                <a href="#inicio">Início</a>
+                <a href="#sobre">Sobre</a>
+                <a href="#planos">Planos</a>
+                <a href="#treinamentos">Treinamentos</a>
+                <a href="#exercicios">Exercícios</a>
+                <a href="#horarios">Horários</a>
+                <a href="#contato">Contato</a>
+                <a href="#matricula" class="btn">Matricule-se</a>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+
+        <!-- INÍCIO -->
+        <section class="hero" id="inicio">
+            <div class="container">
+                <div class="hero-content">
+                    <span class="tag">SEU PRÓXIMO NÍVEL COMEÇA AQUI</span>
+
+                    <h1>
+                        MAIS FORÇA.<br>
+                        MAIS FOCO.<br>
+                        <span>IRON FIT.</span>
+                    </h1>
+
+                    <p>
+                        Um espaço para treinar, evoluir e conquistar
+                        seus objetivos com acompanhamento profissional
+                        e uma estrutura preparada para você.
+                    </p>
+
+                    <div class="hero-buttons">
+                        <a href="#planos" class="btn">Conheça os planos</a>
+                        <a href="#sobre" class="btn btn-outline">
+                            Conheça a academia
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- INDICADORES -->
+        <div class="stats">
+            <div class="container stats-grid">
+                <div class="stat">
+                    <strong>+500</strong>
+                    <span>Alunos atendidos</span>
+                </div>
+
+                <div class="stat">
+                    <strong>+30</strong>
+                    <span>Equipamentos</span>
+                </div>
+
+                <div class="stat">
+                    <strong>6 dias</strong>
+                    <span>De funcionamento</span>
+                </div>
+
+                <div class="stat">
+                    <strong>100%</strong>
+                    <span>Foco na evolução</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- SOBRE -->
+        <section id="sobre">
+            <div class="container about-grid">
+                <div class="about-image" role="img"
+                     aria-label="Ambiente de academia"></div>
+
+                <div class="about-text">
+                    <span class="tag">CONHEÇA A IRON FIT</span>
+
+                    <h2>
+                        Treinar é mais do que exercício.
+                        É construir <span class="verde">novos hábitos.</span>
+                    </h2>
+
+                    <p>
+                        A Iron Fit foi pensada para oferecer um ambiente
+                        acolhedor, motivador e preparado para diferentes
+                        níveis de experiência.
+                    </p>
+
+                    <p>
+                        Nossa proposta é ajudar cada aluno a desenvolver
+                        uma rotina de atividade física com orientação,
+                        segurança e consistência.
+                    </p>
+
+                    <ul class="check-list">
+                        <li>Equipamentos para diferentes objetivos</li>
+                        <li>Profissionais para orientar os treinos</li>
+                        <li>Ambiente organizado e motivador</li>
+                        <li>Planos para diferentes necessidades</li>
+                    </ul>
+
+                    <a href="#matricula" class="btn">Faça sua matrícula</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- PLANOS -->
+        <section class="plans-section" id="planos">
+            <div class="container">
+                <h2 class="section-title">
+                    ESCOLHA SEU <span>PLANO</span>
+                </h2>
+
+                <p class="section-description">
+                    Conheça nossas opções e escolha a que combina
+                    com sua rotina.
+                </p>
+
+                <div class="plans-grid">
+                    <article class="plan-card">
+                        <span class="tag">ESSENCIAL</span>
+                        <h3>Plano Básico</h3>
+
+                        <div class="price">
+                            R$ 79,90 <small>/mês</small>
+                        </div>
+
+                        <p>O necessário para começar sua rotina de treino.</p>
+
+                        <ul>
+                            <li>Acesso à musculação</li>
+                            <li>Treino inicial orientado</li>
+                            <li>Equipamentos da academia</li>
+                            <li>Área de alongamento</li>
+                        </ul>
+
+                        <button class="btn escolher-plano"
+                                data-plano="Básico">
+                            Escolher plano
+                        </button>
+                    </article>
+
+                    <article class="plan-card featured">
+                        <span class="tag">MAIS ESCOLHIDO</span>
+                        <h3>Plano Iron</h3>
+
+                        <div class="price">
+                            R$ 99,90 <small>/mês</small>
+                        </div>
+
+                        <p>Mais opções para sua rotina de atividades.</p>
+
+                        <ul>
+                            <li>Todos os benefícios do Básico</li>
+                            <li>Aulas coletivas disponíveis</li>
+                            <li>Acompanhamento de treino</li>
+                            <li>Mais flexibilidade de horários</li>
+                        </ul>
+
+                        <button class="btn escolher-plano"
+                                data-plano="Iron">
+                            Escolher plano
+                        </button>
+                    </article>
+
+                    <article class="plan-card">
+                        <span class="tag">COMPLETO</span>
+                        <h3>Plano Premium</h3>
+
+                        <div class="price">
+                            R$ 129,90 <small>/mês</small>
+                        </div>
+
+                        <p>Uma opção com mais recursos e benefícios.</p>
+
+                        <ul>
+                            <li>Todos os benefícios do Iron</li>
+                            <li>Avaliação física periódica</li>
+                            <li>Orientação individualizada</li>
+                            <li>Atendimento prioritário</li>
+                        </ul>
+
+                        <button class="btn escolher-plano"
+                                data-plano="Premium">
+                            Escolher plano
+                        </button>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <!-- TREINAMENTOS -->
+        <section id="treinamentos">
+            <div class="container">
+                <h2 class="section-title">
+                    NOSSOS <span>TREINAMENTOS</span>
+                </h2>
+
+                <p class="section-description">
+                    Atividades para diferentes objetivos e níveis
+                    de experiência. Os treinos devem ser orientados
+                    por profissionais qualificados.
+                </p>
+
+                <div class="cards-grid">
+                    <article class="info-card">
+                        <div class="card-icon">🏋️</div>
+                        <h3>Musculação</h3>
+                        <p>
+                            Exercícios com pesos e equipamentos
+                            para desenvolver força e condicionamento.
+                        </p>
+                    </article>
+
+                    <article class="info-card">
+                        <div class="card-icon">⚡</div>
+                        <h3>Treinamento funcional</h3>
+                        <p>
+                            Atividades que trabalham movimentos,
+                            coordenação e equilíbrio.
+                        </p>
+                    </article>
+
+                    <article class="info-card">
+                        <div class="card-icon">🚴</div>
+                        <h3>Spinning</h3>
+                        <p>
+                            Aula coletiva em bicicleta estacionária
+                            com orientação de um instrutor.
+                        </p>
+                    </article>
+
+                    <article class="info-card">
+                        <div class="card-icon">🧘</div>
+                        <h3>Alongamento</h3>
+                        <p>
+                            Atividades orientadas para mobilidade
+                            e flexibilidade.
+                        </p>
+                    </article>
+
+                    <article class="info-card">
+                        <div class="card-icon">🏃</div>
+                        <h3>Condicionamento</h3>
+                        <p>
+                            Exercícios aeróbicos e atividades
+                            para melhorar a resistência física.
+                        </p>
+                    </article>
+
+                    <article class="info-card">
+                        <div class="card-icon">💪</div>
+                        <h3>Treino personalizado</h3>
+                        <p>
+                            Planejamento de exercícios elaborado
+                            por profissional conforme as necessidades
+                            de cada aluno.
+                        </p>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <!-- EXERCÍCIOS -->
+        <section class="classes-section" id="exercicios">
+            <div class="container">
+                <h2 class="section-title">
+                    CATÁLOGO DE <span>EXERCÍCIOS</span>
+                </h2>
+
+                <p class="section-description">
+                    Pesquise exercícios e conheça os principais
+                    grupos musculares envolvidos.
+                </p>
+
+                <div class="exercise-tools">
+                    <input type="search" id="buscaExercicio"
+                           placeholder="Pesquisar exercício..."
+                           aria-label="Pesquisar exercício">
+
+                    <select id="filtroGrupo" aria-label="Filtrar grupo muscular">
+                        <option value="todos">Todos os grupos</option>
+                        <option value="Peitoral">Peitoral</option>
+                        <option value="Costas">Costas</option>
+                        <option value="Pernas">Pernas</option>
+                        <option value="Braços">Braços</option>
+                        <option value="Ombros">Ombros</option>
+                        <option value="Abdômen">Abdômen</option>
+                        <option value="Cardio">Cardio</option>
+                    </select>
+                </div>
+
+                <div class="exercise-grid" id="listaExercicios">
+                    <article class="exercise-card" data-grupo="Peitoral">
+                        <h3>Supino reto</h3>
+                        <p>Exercício de empurrar com foco no peitoral.</p>
+                        <span class="muscle">Peitoral</span>
+                    </article>
+
+                    <article class="exercise-card" data-grupo="Peitoral">
+                        <h3>Crucifixo</h3>
+                        <p>Movimento de abertura dos braços para o peitoral.</p>
+                        <span class="muscle">Peitoral</span>
+                    </article>
+
+                    <article class="exercise-card" data-grupo="Costas">
+                        <h3>Puxada frontal</h3>
+                        <p>Exercício de puxada para os músculos das costas.</p>
+                        <span class="muscle">Costas</span>
+                    </article>
+
+                    <article class="exercise-card" data-grupo="Costas">
+                        <h3>Remada baixa</h3>
+                        <p>Movimento de puxada horizontal para as costas.</p>
+                        <span class="muscle">Costas</span>
+                    </article>
+
+                    <article class="exercise-card" data-grupo="Pernas">
+                        <h3>Agachamento</h3>
+                        <p>Movimento que envolve pernas e glúteos.</p>
+                        <span class="muscle">Pernas</span>
+                    </article>
+
+                    <article class="exercise-card" data-grupo="Pernas">
+                        <h3>Leg press</h3>
+                        <p>Exercício realizado em equipamento para pernas.</p>
+                        <span class="muscle">Pernas</span>
+                    </article>
+
+                    <article class="exercise-card" data-grupo="Braços">
+                        <h3>Rosca direta</h3>
+                        <p>Exercício de flexão dos cotovelos para os bíceps.</p>
+                        <span class="muscle">Braços</span>
+                    </article>
+
+                    <article class="exercise-card" data-grupo="Braços">
+                        <h3>Tríceps na polia</h3>
+                        <p>Movimento de extensão dos cotovelos.</p>
+                        <span class="muscle">Braços</span>
+                    </article>
+
+                    <article class="exercise-card" data-grupo="Ombros">
+                        <h3>Desenvolvimento</h3>
+                        <p>Exercício de empurrar acima da cabeça.</p>
+                        <span class="muscle">Ombros</span>
+                    </article>
+
+                    <article class="exercise-card" data-grupo="Abdômen">
+                        <h3>Prancha</h3>
+                        <p>Exercício isométrico para estabilização do tronco.</p>
+                        <span class="muscle">Abdômen</span>
+                    </article>
+
+                    <article class="exercise-card" data-grupo="Cardio">
+                        <h3>Esteira</h3>
+                        <p>Atividade aeróbica realizada na esteira.</p>
+                        <span class="muscle">Cardio</span>
+                    </article>
+
+                    <article class="exercise-card" data-grupo="Cardio">
+                        <h3>Bicicleta ergométrica</h3>
+                        <p>Atividade aeróbica em bicicleta estacionária.</p>
+                        <span class="muscle">Cardio</span>
+                    </article>
+                </div>
+
+                <p class="empty-state" id="semExercicios">
+                    Nenhum exercício encontrado.
+                </p>
+            </div>
+        </section>
+
+        <!-- HORÁRIOS -->
+        <section id="horarios">
+            <div class="container">
+                <h2 class="section-title">
+                    HORÁRIOS DE <span>FUNCIONAMENTO</span>
+                </h2>
+
+                <p class="section-description">
+                    Confira os horários da academia e das aulas.
+                </p>
+
+                <div style="overflow-x:auto">
+                    <table class="schedule-table">
+                        <thead>
+                            <tr>
+                                <th>Dia</th>
+                                <th>Academia</th>
+                                <th>Aulas coletivas</th>
+                            </tr>
+                        </thead>
+
+                        <tbody>
+                            <tr>
+                                <td>Segunda a sexta</td>
+                                <td>06h às 22h</td>
+                                <td>07h, 18h e 19h</td>
+                            </tr>
+
+                            <tr>
+                                <td>Sábado</td>
+                                <td>08h às 14h</td>
+                                <td>09h e 10h</td>
+                            </tr>
+
+                            <tr>
+                                <td>Domingo</td>
+                                <td>08h às 12h</td>
+                                <td>Sem aulas coletivas</td>
+                            </tr>
+
+                            <tr>
+                                <td>Feriados</td>
+                                <td>Consultar atendimento</td>
+                                <td>Consultar atendimento</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <p class="schedule-note">
+                    Os horários acima são exemplos para o projeto.
+                    Consulte a equipe para confirmar a programação.
+                </p>
+            </div>
+        </section>
+
+        <!-- MATRÍCULA -->
+        <section class="plans-section" id="matricula">
+            <div class="container">
+                <h2 class="section-title">
+                    FAÇA SUA <span>MATRÍCULA</span>
+                </h2>
+
+                <p class="section-description">
+                    Preencha seus dados e escolha o plano desejado.
+                </p>
+
+                <form class="form-box" id="formMatricula">
+                    <div class="form-grid">
+                        <div class="form-group">
+                            <label for="nome">Nome completo</label>
+                            <input type="text" id="nome"
+                                   placeholder="Seu nome" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="email">E-mail</label>
+                            <input type="email" id="email"
+                                   placeholder="seu@email.com" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="telefone">Telefone</label>
+                            <input type="tel" id="telefone"
+                                   placeholder="(00) 00000-0000" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="plano">Plano desejado</label>
+                            <select id="plano" required>
+                                <option value="">Escolha um plano</option>
+                                <option value="Básico">Básico</option>
+                                <option value="Iron">Iron</option>
+                                <option value="Premium">Premium</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="objetivo">Objetivo do treinamento</label>
+                        <select id="objetivo" required>
+                            <option value="">Selecione seu objetivo</option>
+                            <option>Melhorar o condicionamento</option>
+                            <option>Desenvolver força</option>
+                            <option>Aprender a treinar</option>
+                            <option>Participar de aulas coletivas</option>
+                            <option>Outro objetivo</option>
+                        </select>
+                    </div>
+
+                    <button type="submit" class="btn">
+                        Enviar cadastro demonstrativo
+                    </button>
+
+                    <p class="form-message" id="mensagemMatricula"
+                       role="status" aria-live="polite"></p>
+                </form>
+            </div>
+        </section>
+
+        <!-- DEPOIMENTOS -->
+        <section id="depoimentos">
+            <div class="container">
+                <h2 class="section-title">
+                    O QUE DIZEM <span>NOSSOS ALUNOS</span>
+                </h2>
+
+                <p class="section-description">
+                    Exemplos de depoimentos para a apresentação do site.
+                </p>
+
+                <div class="cards-grid">
+                    <article class="testimonial">
+                        <p>
+                            "Um ambiente agradável e uma equipe
+                            que sempre está disposta a ajudar."
+                        </p>
+                        <strong>Aluno demonstrativo</strong>
+                    </article>
+
+                    <article class="testimonial">
+                        <p>
+                            "Gostei da organização e da variedade
+                            de equipamentos disponíveis."
+                        </p>
+                        <strong>Aluna demonstrativa</strong>
+                    </article>
+
+                    <article class="testimonial">
+                        <p>
+                            "Consegui incluir os treinos na minha
+                            rotina e conhecer novas atividades."
+                        </p>
+                        <strong>Aluno demonstrativo</strong>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <!-- PERGUNTAS FREQUENTES -->
+        <section class="faq-section" id="faq">
+            <div class="container">
+                <h2 class="section-title">
+                    PERGUNTAS <span>FREQUENTES</span>
+                </h2>
+
+                <p class="section-description">
+                    Tire suas dúvidas sobre a academia.
+                </p>
+
+                <div class="faq-list">
+                    <div class="faq-item">
+                        <button class="faq-question" aria-expanded="false">
+                            Como faço minha matrícula?
+                            <span>+</span>
+                        </button>
+
+                        <div class="faq-answer">
+                            <p>
+                                Preencha o formulário de matrícula,
+                                escolha seu plano e entre em contato
+                                com a equipe para confirmar sua inscrição.
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="faq-item">
+                        <button class="faq-question" aria-expanded="false">
+                            Preciso ter experiência para treinar?
+                            <span>+</span>
+                        </button>
+
+                        <div class="faq-answer">
+                            <p>
+                                Não. A academia pode orientar iniciantes
+                                e alunos com diferentes níveis de experiência.
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="faq-item">
+                        <button class="faq-question" aria-expanded="false">
+                            Posso conhecer a academia antes?
+                            <span>+</span>
+                        </button>
+
+                        <div class="faq-answer">
+                            <p>
+                                Entre em contato com a equipe para
+                                verificar a possibilidade de uma visita.
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="faq-item">
+                        <button class="faq-question" aria-expanded="false">
+                            Como funcionam as aulas coletivas?
+                            <span>+</span>
+                        </button>
+
+                        <div class="faq-answer">
+                            <p>
+                                As aulas possuem horários específicos
+                                e são conduzidas por instrutores.
+                                Consulte a programação da academia.
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="faq-item">
+                        <button class="faq-question" aria-expanded="false">
+                            Como posso entrar em contato?
+                            <span>+</span>
+                        </button>
+
+                        <div class="faq-answer">
+                            <p>
+                                Utilize os dados de contato apresentados
+                                no final desta página.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- CONTATO -->
+        <section id="contato">
+            <div class="container">
+                <h2 class="section-title">
+                    FALE COM A <span>IRON FIT</span>
+                </h2>
+
+                <p class="section-description">
+                    Estamos disponíveis para tirar suas dúvidas.
+                </p>
+
+                <div class="contact-grid">
+                    <div class="contact-info">
+                        <h3>Entre em contato</h3>
+
+                        <p>
+                            <strong>Telefone:</strong><br>
+                            (00) 00000-0000
+                        </p>
+
+                        <p>
+                            <strong>E-mail:</strong><br>
+                            contato@ironfit.com.br
+                        </p>
+
+                        <p>
+                            <strong>Endereço:</strong><br>
+                            Adicione o endereço da academia
+                        </p>
+
+                        <p>
+                            <strong>Horário:</strong><br>
+                            Segunda a sexta, das 06h às 22h
+                        </p>
+                    </div>
+
+                    <form class="contact-box" id="formContato">
+                        <div class="form-group">
+                            <label for="contatoNome">Seu nome</label>
+                            <input type="text" id="contatoNome" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="contatoEmail">Seu e-mail</label>
+                            <input type="email" id="contatoEmail" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="contatoMensagem">Mensagem</label>
+                            <textarea id="contatoMensagem"
+                                      rows="4" required></textarea>
+                        </div>
+
+                        <button type="submit" class="btn">
+                            Enviar mensagem demonstrativa
+                        </button>
+
+                        <p class="form-message" id="mensagemContato"
+                           role="status" aria-live="polite"></p>
+                    </form>
+                </div>
+            </div>
+        </section>
+
+        <!-- PAINEL FINANCEIRO -->
+        <section class="admin-section" id="financeiro">
+            <div class="container">
+                <h2 class="section-title">
+                    PAINEL <span>FINANCEIRO</span>
+                </h2>
+
+                <p class="admin-warning">
+                    Área demonstrativa para o projeto. Os valores abaixo
+                    são fictícios e não representam o faturamento real
+                    de uma academia.
+                </p>
+
+                <div class="admin-grid">
+                    <div class="admin-card">
+                        <p>Faturamento mensal</p>
+                        <strong id="faturamentoAtual">R$ 25.000,00</strong>
+                    </div>
+
+                    <div class="admin-card">
+                        <p>Despesas mensais</p>
+                        <strong id="despesasAtuais">R$ 12.000,00</strong>
+                    </div>
+
+                    <div class="admin-card">
+                        <p>Resultado estimado</p>
+                        <strong id="lucroAtual">R$ 13.000,00</strong>
+                    </div>
+                </div>
+
+                <form class="form-box admin-form" id="formFinanceiro">
+                    <h3 style="margin-bottom:22px">
+                        Simular resultado financeiro
+                    </h3>
+
+                    <div class="form-group">
+                        <label for="receita">Receita mensal (R$)</label>
+                        <input type="number" id="receita"
+                               min="0" step="0.01" value="25000" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="despesas">Despesas mensais (R$)</label>
+                        <input type="number" id="despesas"
+                               min="0" step="0.01" value="12000" required>
+                    </div>
+
+                    <button type="submit" class="btn">
+                        Calcular faturamento
+                    </button>
+
+                    <p class="admin-result" id="resultadoFinanceiro"
+                       role="status" aria-live="polite"></p>
+                </form>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- RODAPÉ -->
+    <footer>
+        <div class="container">
+            <a href="#inicio" class="logo">IRON <span>FIT</span></a>
+
+            <p>
+                Academia Iron Fit — Projeto demonstrativo.
+            </p>
+
+            <p>
+                © 2026 Iron Fit. Todos os direitos reservados.
+            </p>
+        </div>
+    </footer>
+
+    <script>
+        // MENU PARA CELULAR
+        const menuToggle = document.getElementById("menuToggle");
+        const navLinks = document.getElementById("navLinks");
+
+        menuToggle.addEventListener("click", function() {
+            const aberto = navLinks.classList.toggle("active");
+
+            menuToggle.setAttribute("aria-expanded", aberto);
+            menuToggle.textContent = aberto ? "✕ Fechar" : "☰ Menu";
+        });
+
+        // FECHAR MENU AO CLICAR EM UM LINK
+        navLinks.querySelectorAll("a").forEach(function(link) {
+            link.addEventListener("click", function() {
+                navLinks.classList.remove("active");
+                menuToggle.setAttribute("aria-expanded", "false");
+                menuToggle.textContent = "☰ Menu";
+            });
+        });
+
+        // ESCOLHER PLANO E IR PARA A MATRÍCULA
+        const botoesPlanos = document.querySelectorAll(".escolher-plano");
+        const campoPlano = document.getElementById("plano");
+
+        botoesPlanos.forEach(function(botao) {
+            botao.addEventListener("click", function() {
+                campoPlano.value = botao.dataset.plano;
+
+                document.getElementById("matricula").scrollIntoView({
+                    behavior: "smooth"
+                });
+            });
+        });
+
+        // CADASTRO DEMONSTRATIVO
+        const formMatricula = document.getElementById("formMatricula");
+        const mensagemMatricula = document.getElementById("mensagemMatricula");
+
+        formMatricula.addEventListener("submit", function(event) {
+            event.preventDefault();
+
+            const nome = document.getElementById("nome").value.trim();
+            const plano = campoPlano.value;
+
+            mensagemMatricula.textContent =
+                "Cadastro demonstrativo realizado para " +
+                nome + ". Plano escolhido: " + plano +
+                ". Entre em contato para confirmar a matrícula.";
+
+            formMatricula.reset();
+        });
+
+        // PESQUISA E FILTRO DE EXERCÍCIOS
+        const buscaExercicio = document.getElementById("buscaExercicio");
+        const filtroGrupo = document.getElementById("filtroGrupo");
+        const exercicios = document.querySelectorAll(".exercise-card");
+        const semExercicios = document.getElementById("semExercicios");
+
+        function filtrarExercicios() {
+            const texto = buscaExercicio.value.toLowerCase().trim();
+            const grupo = filtroGrupo.value;
+
+            let encontrados = 0;
+
+            exercicios.forEach(function(exercicio) {
+                const nome = exercicio.textContent.toLowerCase();
+                const categoria = exercicio.dataset.grupo;
+
+                const combinaTexto = nome.includes(texto);
+                const combinaGrupo =
+                    grupo === "todos" || categoria === grupo;
+
+                const mostrar = combinaTexto && combinaGrupo;
+
+                exercicio.style.display = mostrar ? "block" : "none";
+
+                if (mostrar) encontrados++;
+            });
+
+            semExercicios.style.display =
+                encontrados === 0 ? "block" : "none";
+        }
+
+        buscaExercicio.addEventListener("input", filtrarExercicios);
+        filtroGrupo.addEventListener("change", filtrarExercicios);
+
+        // PERGUNTAS FREQUENTES
+        document.querySelectorAll(".faq-question").forEach(function(botao) {
+            botao.addEventListener("click", function() {
+                const item = botao.closest(".faq-item");
+                const aberto = item.classList.toggle("open");
+
+                botao.setAttribute("aria-expanded", aberto);
+                botao.querySelector("span").textContent =
+                    aberto ? "−" : "+";
+            });
+        });
+
+        // FORMULÁRIO DE CONTATO
+        const formContato = document.getElementById("formContato");
+
+        formContato.addEventListener("submit", function(event) {
+            event.preventDefault();
+
+            document.getElementById("mensagemContato").textContent =
+                "Mensagem demonstrativa preenchida com sucesso. " +
+                "Este formulário ainda não envia e-mails.";
+
+            formContato.reset();
+        });
+
+        // FORMATAÇÃO DE VALORES EM REAL
+        function formatarReal(valor) {
+            return new Intl.NumberFormat("pt-BR", {
+                style: "currency",
+                currency: "BRL"
+            }).format(valor);
+        }
+
+        // CÁLCULO FINANCEIRO
+        const formFinanceiro = document.getElementById("formFinanceiro");
+
+        formFinanceiro.addEventListener("submit", function(event) {
+            event.preventDefault();
+
+            const receitaCampo = document.getElementById("receita");
+            const despesasCampo = document.getElementById("despesas");
+
+            const receita = Number(receitaCampo.value);
+            const despesas = Number(despesasCampo.value);
+
+            if (
+                receitaCampo.value === "" ||
+                despesasCampo.value === "" ||
+                !Number.isFinite(receita) ||
+                !Number.isFinite(despesas) ||
+                receita < 0 ||
+                despesas < 0
+            ) {
+                document.getElementById("resultadoFinanceiro").textContent =
+                    "Informe valores válidos para receita e despesas.";
+                return;
+            }
+
+            const lucro = receita - despesas;
+
+            document.getElementById("faturamentoAtual").textContent =
+                formatarReal(receita);
+
+            document.getElementById("despesasAtuais").textContent =
+                formatarReal(despesas);
+
+            document.getElementById("lucroAtual").textContent =
+                formatarReal(lucro);
+
+            document.getElementById("resultadoFinanceiro").textContent =
+                "Resultado mensal: " + formatarReal(lucro);
+        });
+    </script>
+
+</body>
+</html>
