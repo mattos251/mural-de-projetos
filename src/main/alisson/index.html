@@ -1,1610 +1,403 @@
-
-
 <!DOCTYPE html>
 <html lang="pt-BR">
+
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Encanto do Fios - Salão de Beleza</title>
+    <title>Encanto do Fios - Salão de Beleza</title>
 
-<style>
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
 
-body {
-    font-family: Arial, sans-serif;
-    background: #eaf3ff;
-    color: #24364b;
-}
+        body {
+            font-family: Arial, sans-serif;
+            background: #eaf3ff;
+            color: #24364b;
+        }
 
-/* CABEÇALHO */
-header {
-    background: #0755a5;
-    color: white;
-    text-align: center;
-    padding: 30px 15px;
-}
+        /* CABEÇALHO */
+        header {
+            background: #0755a5;
+            color: white;
+            text-align: center;
+            padding: 30px 15px;
+        }
 
-header h1 {
-    font-size: 36px;
-    letter-spacing: 2px;
-}
+        header h1 {
+            font-size: 36px;
+            letter-spacing: 2px;
+        }
 
-header p {
-    margin-top: 10px;
-    color: #dceeff;
-}
+        header p {
+            margin-top: 10px;
+            color: #dceeff;
+        }
 
-/* MENU */
-nav {
-    background: #063b78;
-    padding: 16px;
-    text-align: center;
-}
+        /* MENU */
+        nav {
+            background: #063b78;
+            padding: 16px;
+            text-align: center;
+        }
 
-nav a {
-    color: white;
-    text-decoration: none;
-    margin: 0 15px;
-    font-weight: bold;
-}
+        nav a {
+            color: white;
+            text-decoration: none;
+            margin: 0 15px;
+            font-weight: bold;
+        }
 
-nav a:hover {
-    color: #91caff;
-}
+        nav a:hover {
+            color: #91caff;
+        }
 
-/* CONTEÚDO */
-main {
-    max-width: 950px;
-    margin: 30px auto;
-    padding: 15px;
-}
+        /* CONTEÚDO */
+        main {
+            max-width: 950px;
+            margin: 30px auto;
+            padding: 15px;
+        }
 
-.container {
-    background: white;
-    padding: 28px;
-    border-radius: 12px;
-    margin-bottom: 25px;
-    box-shadow: 0 4px 15px rgba(0, 50, 110, 0.10);
-}
+        .container {
+            background: white;
+            padding: 28px;
+            border-radius: 12px;
+            margin-bottom: 25px;
+            box-shadow: 0 4px 15px rgba(0, 50, 110, 0.10);
+        }
 
-h2 {
-    color: #0755a5;
-    margin-bottom: 20px;
-    border-bottom: 2px solid #d5e7fa;
-    padding-bottom: 12px;
-}
+        h2 {
+            color: #0755a5;
+            margin-bottom: 20px;
+            border-bottom: 2px solid #d5e7fa;
+            padding-bottom: 12px;
+        }
 
-/* FORMULÁRIO */
-label {
-    display: block;
-    margin: 14px 0 7px;
-    font-weight: bold;
-    color: #164d83;
-}
+        /* FORMULÁRIO */
+        label {
+            display: block;
+            margin: 14px 0 7px;
+            font-weight: bold;
+            color: #164d83;
+        }
 
-input, select {
-    width: 100%;
-    padding: 13px;
-    border: 1px solid #c5d9ee;
-    border-radius: 7px;
-    font-size: 15px;
-    background: #fff;
-    color: #24364b;
-}
+        input,
+        select {
+            width: 100%;
+            padding: 13px;
+            border: 1px solid #c5d9ee;
+            border-radius: 7px;
+            font-size: 15px;
+            background: #fff;
+            color: #24364b;
+        }
 
-input:focus, select:focus {
-    outline: 2px solid #68aaf0;
-}
+        input:focus,
+        select:focus {
+            outline: 2px solid #68aaf0;
+        }
 
-/* BOTÕES */
-button {
-    background: #0755a5;
-    color: white;
-    border: none;
-    padding: 13px 20px;
-    border-radius: 7px;
-    cursor: pointer;
-    margin-top: 18px;
-    font-size: 15px;
-    font-weight: bold;
-}
+        /* BOTÕES */
+        button {
+            background: #0755a5;
+            color: white;
+            border: none;
+            padding: 13px 20px;
+            border-radius: 7px;
+            cursor: pointer;
+            margin-top: 18px;
+            font-size: 15px;
+            font-weight: bold;
+        }
 
-button:hover {
-    background: #063b78;
-}
+        button:hover {
+            background: #063b78;
+        }
 
-/* AGENDAMENTOS */
-.agendamento {
-    background: #edf5ff;
-    border-left: 5px solid #0755a5;
-    padding: 18px;
-    border-radius: 8px;
-    margin-bottom: 15px;
-}
+        /* AGENDAMENTOS */
+        .agendamento {
+            background: #edf5ff;
+            border-left: 5px solid #0755a5;
+            padding: 18px;
+            border-radius: 8px;
+            margin-bottom: 15px;
+        }
 
-.agendamento h3 {
-    color: #0755a5;
-    margin-bottom: 10px;
-}
+        .agendamento h3 {
+            color: #0755a5;
+            margin-bottom: 10px;
+        }
 
-.agendamento p {
-    margin-top: 7px;
-}
+        .agendamento p {
+            margin-top: 7px;
+        }
 
-.excluir {
-    background: #c03939;
-}
+        .excluir {
+            background: #c03939;
+        }
 
-.excluir:hover {
-    background: #962b2b;
-}
+        .excluir:hover {
+            background: #962b2b;
+        }
 
-#mensagem {
-    margin-top: 15px;
-    font-weight: bold;
-}
+        #mensagem {
+            margin-top: 15px;
+            font-weight: bold;
+        }
 
-/* RODAPÉ */
-footer {
-    background: #063b78;
-    color: white;
-    text-align: center;
-    padding: 22px;
-    margin-top: 30px;
-}
+        /* RODAPÉ */
+        footer {
+            background: #063b78;
+            color: white;
+            text-align: center;
+            padding: 22px;
+            margin-top: 30px;
+        }
 
-@media(max-width: 600px) {
-    header h1 {
-        font-size: 28px;
-    }
+        @media(max-width: 600px) {
+            header h1 {
+                font-size: 28px;
+            }
 
-    nav a {
-        display: inline-block;
-        margin: 7px;
-    }
+            nav a {
+                display: inline-block;
+                margin: 7px;
+            }
 
-    .container {
-        padding: 18px;
-    }
-}
-</style>
+            .container {
+                padding: 18px;
+            }
+        }
+    </style>
 </head>
 
 <body>
 
-<header>
-    <h1>ENCANTO DO FIOS</h1>
-    <p>Sistema de Gerenciamento de Salão de Cabelo</p>
-</header>
+    <header>
+        <h1>ENCANTO DO FIOS</h1>
+        <p>Sistema de Gerenciamento de Salão de Cabelo</p>
+    </header>
 
-<nav>
-    <a href="#cadastro">Cadastrar Cliente</a>
-    <a href="#agendamentos">Agendamentos</a>
-</nav>
+    <nav>
+        <a href="#cadastro">Cadastrar Cliente</a>
+        <a href="#agendamentos">Agendamentos</a>
+    </nav>
 
-<main>
+    <main>
 
-    <!-- CADASTRO E AGENDAMENTO -->
-    <section class="container" id="cadastro">
+        <!-- CADASTRO E AGENDAMENTO -->
+        <section class="container" id="cadastro">
 
-        <h2>Novo Agendamento</h2>
+            <h2>Novo Agendamento</h2>
 
-        <form id="formulario">
+            <form id="formulario">
 
-            <label for="nome">Nome do cliente:</label>
-            <input type="text" id="nome"
-            placeholder="Digite o nome do cliente" required>
+                <label for="nome">Nome do cliente:</label>
+                <input type="text" id="nome" placeholder="Digite o nome do cliente" required>
 
-            <label for="telefone">Telefone:</label>
-            <input type="tel" id="telefone"
-            placeholder="Digite o telefone" required>
+                <label for="telefone">Telefone:</label>
+                <input type="tel" id="telefone" placeholder="Digite o telefone" required>
 
-            <label for="servico">Escolha o serviço:</label>
+                <label for="servico">Escolha o serviço:</label>
 
-            <select id="servico" required>
-                <option value="">Selecione um serviço</option>
-                <option value="Corte - R$ 30">Corte - R$ 30</option>
-                <option value="Escova - R$ 40">Escova - R$ 40</option>
-                <option value="Hidratação - R$ 50">Hidratação - R$ 50</option>
-                <option value="Coloração - R$ 100">Coloração - R$ 100</option>
-            </select>
+                <select id="servico" required>
+                    <option value="">Selecione um serviço</option>
+                    <option value="Corte - R$ 30">Corte - R$ 30</option>
+                    <option value="Escova - R$ 40">Escova - R$ 40</option>
+                    <option value="Hidratação - R$ 50">Hidratação - R$ 50</option>
+                    <option value="Coloração - R$ 100">Coloração - R$ 100</option>
+                </select>
 
-            <label for="data">Data do atendimento:</label>
-            <input type="date" id="data" required>
+                <label for="data">Data do atendimento:</label>
+                <input type="date" id="data" required>
 
-            <label for="horario">Horário:</label>
-            <input type="time" id="horario" required>
+                <label for="horario">Horário:</label>
+                <input type="time" id="horario" required>
 
-            <button type="submit">Confirmar Agendamento</button>
+                <button type="submit">Confirmar Agendamento</button>
 
-        </form>
+            </form>
 
-        <p id="mensagem" aria-live="polite"></p>
+            <p id="mensagem" aria-live="polite"></p>
 
-    </section>
+        </section>
 
-    <!-- CONSULTA DE AGENDAMENTOS -->
-    <section class="container" id="agendamentos">
+        <!-- CONSULTA DE AGENDAMENTOS -->
+        <section class="container" id="agendamentos">
 
-        <h2>Agendamentos Realizados</h2>
+            <h2>Agendamentos Realizados</h2>
 
-        <div id="lista"></div>
+            <div id="lista"></div>
 
-    </section>
+        </section>
 
-</main>
+    </main>
 
-<footer>
-    <p>Alisson e Luna © 2026</p>
-    <p>Beleza, cuidado e elegância!</p>
-</footer>
+    <footer>
+        <p>Alisson e Luna © 2026</p>
+        <p>Beleza, cuidado e elegância!</p>
+    </footer>
 
-<script>
+    <script>
 
-// ARMAZENAMENTO DOS AGENDAMENTOS
-let agendamentos = JSON.parse(
-    localStorage.getItem("beautyHair")
-) || [];
+        // ARMAZENAMENTO DOS AGENDAMENTOS
+        let agendamentos = JSON.parse(
+            localStorage.getItem("beautyHair")
+        ) || [];
 
-const formulario = document.getElementById("formulario");
-const lista = document.getElementById("lista");
-const mensagem = document.getElementById("mensagem");
+        const formulario = document.getElementById("formulario");
+        const lista = document.getElementById("lista");
+        const mensagem = document.getElementById("mensagem");
 
-// FUNÇÃO 1: CADASTRAR CLIENTE E AGENDAR
-formulario.addEventListener("submit", function(event) {
+        // FUNÇÃO 1: CADASTRAR CLIENTE E AGENDAR
+        formulario.addEventListener("submit", function (event) {
 
-    event.preventDefault();
+            event.preventDefault();
 
-    const nome = document.getElementById("nome").value.trim();
-    const telefone = document.getElementById("telefone").value.trim();
-    const servico = document.getElementById("servico").value;
-    const data = document.getElementById("data").value;
-    const horario = document.getElementById("horario").value;
+            const nome = document.getElementById("nome").value.trim();
+            const telefone = document.getElementById("telefone").value.trim();
+            const servico = document.getElementById("servico").value;
+            const data = document.getElementById("data").value;
+            const horario = document.getElementById("horario").value;
 
-    // Impede datas anteriores à data atual
-    const hoje = new Date();
-    const ano = hoje.getFullYear();
-    const mes = String(hoje.getMonth() + 1).padStart(2, "0");
-    const dia = String(hoje.getDate()).padStart(2, "0");
-    const dataAtual = `${ano}-${mes}-${dia}`;
+            // Impede datas anteriores à data atual
+            const hoje = new Date();
+            const ano = hoje.getFullYear();
+            const mes = String(hoje.getMonth() + 1).padStart(2, "0");
+            const dia = String(hoje.getDate()).padStart(2, "0");
+            const dataAtual = `${ano}-${mes}-${dia}`;
 
-    if (data < dataAtual) {
-        mensagem.textContent = "Escolha uma data válida!";
-        mensagem.style.color = "red";
-        return;
-    }
+            if (data < dataAtual) {
+                mensagem.textContent = "Escolha uma data válida!";
+                mensagem.style.color = "red";
+                return;
+            }
 
-    // Verifica se o horário está ocupado
-    const ocupado = agendamentos.some(cliente =>
-        cliente.data === data &&
-        cliente.horario === horario
-    );
+            // Verifica se o horário está ocupado
+            const ocupado = agendamentos.some(cliente =>
+                cliente.data === data &&
+                cliente.horario === horario
+            );
 
-    if (ocupado) {
-        mensagem.textContent = "Este horário já está ocupado!";
-        mensagem.style.color = "red";
-        return;
-    }
+            if (ocupado) {
+                mensagem.textContent = "Este horário já está ocupado!";
+                mensagem.style.color = "red";
+                return;
+            }
 
-    const novoAgendamento = {
-        nome,
-        telefone,
-        servico,
-        data,
-        horario
-    };
+            const novoAgendamento = {
+                nome,
+                telefone,
+                servico,
+                data,
+                horario
+            };
 
-    agendamentos.push(novoAgendamento);
+            agendamentos.push(novoAgendamento);
 
-    salvarDados();
-    mostrarAgendamentos();
+            salvarDados();
+            mostrarAgendamentos();
 
-    mensagem.textContent = "Agendamento realizado com sucesso!";
-    mensagem.style.color = "green";
+            mensagem.textContent = "Agendamento realizado com sucesso!";
+            mensagem.style.color = "green";
 
-    formulario.reset();
-});
-
-// FUNÇÃO 2: CONSULTAR AGENDAMENTOS
-function mostrarAgendamentos() {
-
-    lista.innerHTML = "";
-
-    if (agendamentos.length === 0) {
-        lista.innerHTML = "<p>Nenhum agendamento cadastrado.</p>";
-        return;
-    }
-
-    const ordenados = [...agendamentos].sort((a, b) =>
-        (a.data + a.horario).localeCompare(b.data + b.horario)
-    );
-
-    ordenados.forEach(cliente => {
-
-        const card = document.createElement("div");
-        card.className = "agendamento";
-
-        const titulo = document.createElement("h3");
-        titulo.textContent = cliente.nome;
-
-        const telefone = document.createElement("p");
-        telefone.textContent = "Telefone: " + cliente.telefone;
-
-        const servico = document.createElement("p");
-        servico.textContent = "Serviço: " + cliente.servico;
-
-        const data = document.createElement("p");
-        data.textContent = "Data: " + cliente.data;
-
-        const horario = document.createElement("p");
-        horario.textContent = "Horário: " + cliente.horario;
-
-        const botao = document.createElement("button");
-        botao.textContent = "Excluir Agendamento";
-        botao.className = "excluir";
-
-        botao.addEventListener("click", function() {
-            excluirAgendamento(cliente);
+            formulario.reset();
         });
 
-        card.append(
-            titulo,
-            telefone,
-            servico,
-            data,
-            horario,
-            botao
-        );
+        // FUNÇÃO 2: CONSULTAR AGENDAMENTOS
+        function mostrarAgendamentos() {
 
-        lista.appendChild(card);
-    });
-}
+            lista.innerHTML = "";
 
-// FUNÇÃO 3: EXCLUIR AGENDAMENTO
-function excluirAgendamento(cliente) {
+            if (agendamentos.length === 0) {
+                lista.innerHTML = "<p>Nenhum agendamento cadastrado.</p>";
+                return;
+            }
 
-    const confirmar = confirm(
-        "Deseja excluir este agendamento?"
-    );
+            const ordenados = [...agendamentos].sort((a, b) =>
+                (a.data + a.horario).localeCompare(b.data + b.horario)
+            );
 
-    if (!confirmar) return;
+            ordenados.forEach(cliente => {
 
-    agendamentos = agendamentos.filter(
-        item => item !== cliente
-    );
+                const card = document.createElement("div");
+                card.className = "agendamento";
 
-    salvarDados();
-    mostrarAgendamentos();
+                const titulo = document.createElement("h3");
+                titulo.textContent = cliente.nome;
 
-    mensagem.textContent = "Agendamento excluído com sucesso!";
-    mensagem.style.color = "green";
-}
+                const telefone = document.createElement("p");
+                telefone.textContent = "Telefone: " + cliente.telefone;
 
-// FUNÇÃO 4: SALVAR DADOS
-function salvarDados() {
+                const servico = document.createElement("p");
+                servico.textContent = "Serviço: " + cliente.servico;
 
-    localStorage.setItem(
-        "beautyHair",
-        JSON.stringify(agendamentos)
-    );
-}
+                const data = document.createElement("p");
+                data.textContent = "Data: " + cliente.data;
 
-// CARREGAR AGENDAMENTOS AO ABRIR
-mostrarAgendamentos();
+                const horario = document.createElement("p");
+                horario.textContent = "Horário: " + cliente.horario;
 
-</script>
+                const botao = document.createElement("button");
+                botao.textContent = "Excluir Agendamento";
+                botao.className = "excluir";
+
+                botao.addEventListener("click", function () {
+                    excluirAgendamento(cliente);
+                });
+
+                card.append(
+                    titulo,
+                    telefone,
+                    servico,
+                    data,
+                    horario,
+                    botao
+                );
+
+                lista.appendChild(card);
+            });
+        }
+
+        // FUNÇÃO 3: EXCLUIR AGENDAMENTO
+        function excluirAgendamento(cliente) {
+
+            const confirmar = confirm(
+                "Deseja excluir este agendamento?"
+            );
+
+            if (!confirmar) return;
+
+            agendamentos = agendamentos.filter(
+                item => item !== cliente
+            );
+
+            salvarDados();
+            mostrarAgendamentos();
+
+            mensagem.textContent = "Agendamento excluído com sucesso!";
+            mensagem.style.color = "green";
+        }
+
+        // FUNÇÃO 4: SALVAR DADOS
+        function salvarDados() {
+
+            localStorage.setItem(
+                "beautyHair",
+                JSON.stringify(agendamentos)
+            );
+        }
+
+        // CARREGAR AGENDAMENTOS AO ABRIR
+        mostrarAgendamentos();
+
+    </script>
 
 </body>
-</html>
 
-<!DOCTYPE html>
-<html lang="pt-BR">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<title>Beauty Hair - Salão de Beleza</title>
-
-<style>
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
-
-body {
-    font-family: Arial, sans-serif;
-    background: #eaf3ff;
-    color: #24364b;
-}
-
-/* CABEÇALHO */
-header {
-    background: #0755a5;
-    color: white;
-    text-align: center;
-    padding: 30px 15px;
-}
-
-header h1 {
-    font-size: 36px;
-    letter-spacing: 2px;
-}
-
-header p {
-    margin-top: 10px;
-    color: #dceeff;
-}
-
-/* MENU */
-nav {
-    background: #063b78;
-    padding: 16px;
-    text-align: center;
-}
-
-nav a {
-    color: white;
-    text-decoration: none;
-    margin: 0 15px;
-    font-weight: bold;
-}
-
-nav a:hover {
-    color: #91caff;
-}
-
-/* CONTEÚDO */
-main {
-    max-width: 950px;
-    margin: 30px auto;
-    padding: 15px;
-}
-
-.container {
-    background: white;
-    padding: 28px;
-    border-radius: 12px;
-    margin-bottom: 25px;
-    box-shadow: 0 4px 15px rgba(0, 50, 110, 0.10);
-}
-
-h2 {
-    color: #0755a5;
-    margin-bottom: 20px;
-    border-bottom: 2px solid #d5e7fa;
-    padding-bottom: 12px;
-}
-
-/* FORMULÁRIO */
-label {
-    display: block;
-    margin: 14px 0 7px;
-    font-weight: bold;
-    color: #164d83;
-}
-
-input, select {
-    width: 100%;
-    padding: 13px;
-    border: 1px solid #c5d9ee;
-    border-radius: 7px;
-    font-size: 15px;
-    background: #fff;
-    color: #24364b;
-}
-
-input:focus, select:focus {
-    outline: 2px solid #68aaf0;
-}
-
-/* BOTÕES */
-button {
-    background: #0755a5;
-    color: white;
-    border: none;
-    padding: 13px 20px;
-    border-radius: 7px;
-    cursor: pointer;
-    margin-top: 18px;
-    font-size: 15px;
-    font-weight: bold;
-}
-
-button:hover {
-    background: #063b78;
-}
-
-/* AGENDAMENTOS */
-.agendamento {
-    background: #edf5ff;
-    border-left: 5px solid #0755a5;
-    padding: 18px;
-    border-radius: 8px;
-    margin-bottom: 15px;
-}
-
-.agendamento h3 {
-    color: #0755a5;
-    margin-bottom: 10px;
-}
-
-.agendamento p {
-    margin-top: 7px;
-}
-
-.excluir {
-    background: #c03939;
-}
-
-.excluir:hover {
-    background: #962b2b;
-}
-
-#mensagem {
-    margin-top: 15px;
-    font-weight: bold;
-}
-
-/* RODAPÉ */
-footer {
-    background: #063b78;
-    color: white;
-    text-align: center;
-    padding: 22px;
-    margin-top: 30px;
-}
-
-@media(max-width: 600px) {
-    header h1 {
-        font-size: 28px;
-    }
-
-    nav a {
-        display: inline-block;
-        margin: 7px;
-    }
-
-    .container {
-        padding: 18px;
-    }
-}
-</style>
-</head>
-
-<body>
-
-<header>
-    <h1>BEAUTY HAIR</h1>
-    <p>Sistema de Gerenciamento de Salão de Cabelo</p>
-</header>
-
-<nav>
-    <a href="#cadastro">Cadastrar Cliente</a>
-    <a href="#agendamentos">Agendamentos</a>
-</nav>
-
-<main>
-
-    <!-- CADASTRO E AGENDAMENTO -->
-    <section class="container" id="cadastro">
-
-        <h2>Novo Agendamento</h2>
-
-        <form id="formulario">
-
-            <label for="nome">Nome do cliente:</label>
-            <input type="text" id="nome"
-            placeholder="Digite o nome do cliente" required>
-
-            <label for="telefone">Telefone:</label>
-            <input type="tel" id="telefone"
-            placeholder="Digite o telefone" required>
-
-            <label for="servico">Escolha o serviço:</label>
-
-            <select id="servico" required>
-                <option value="">Selecione um serviço</option>
-                <option value="Corte - R$ 30">Corte - R$ 30</option>
-                <option value="Escova - R$ 40">Escova - R$ 40</option>
-                <option value="Hidratação - R$ 50">Hidratação - R$ 50</option>
-                <option value="Coloração - R$ 100">Coloração - R$ 100</option>
-            </select>
-
-            <label for="data">Data do atendimento:</label>
-            <input type="date" id="data" required>
-
-            <label for="horario">Horário:</label>
-            <input type="time" id="horario" required>
-
-            <button type="submit">Confirmar Agendamento</button>
-
-        </form>
-
-        <p id="mensagem" aria-live="polite"></p>
-
-    </section>
-
-    <!-- CONSULTA DE AGENDAMENTOS -->
-    <section class="container" id="agendamentos">
-
-        <h2>Agendamentos Realizados</h2>
-
-        <div id="lista"></div>
-
-    </section>
-
-</main>
-
-<footer>
-    <p>BEAUTY HAIR © 2026</p>
-    <p>Beleza, cuidado e elegância!</p>
-</footer>
-
-<script>
-
-// ARMAZENAMENTO DOS AGENDAMENTOS
-let agendamentos = JSON.parse(
-    localStorage.getItem("beautyHair")
-) || [];
-
-const formulario = document.getElementById("formulario");
-const lista = document.getElementById("lista");
-const mensagem = document.getElementById("mensagem");
-
-// FUNÇÃO 1: CADASTRAR CLIENTE E AGENDAR
-formulario.addEventListener("submit", function(event) {
-
-    event.preventDefault();
-
-    const nome = document.getElementById("nome").value.trim();
-    const telefone = document.getElementById("telefone").value.trim();
-    const servico = document.getElementById("servico").value;
-    const data = document.getElementById("data").value;
-    const horario = document.getElementById("horario").value;
-
-    // Impede datas anteriores à data atual
-    const hoje = new Date();
-    const ano = hoje.getFullYear();
-    const mes = String(hoje.getMonth() + 1).padStart(2, "0");
-    const dia = String(hoje.getDate()).padStart(2, "0");
-    const dataAtual = `${ano}-${mes}-${dia}`;
-
-    if (data < dataAtual) {
-        mensagem.textContent = "Escolha uma data válida!";
-        mensagem.style.color = "red";
-        return;
-    }
-
-    // Verifica se o horário está ocupado
-    const ocupado = agendamentos.some(cliente =>
-        cliente.data === data &&
-        cliente.horario === horario
-    );
-
-    if (ocupado) {
-        mensagem.textContent = "Este horário já está ocupado!";
-        mensagem.style.color = "red";
-        return;
-    }
-
-    const novoAgendamento = {
-        nome,
-        telefone,
-        servico,
-        data,
-        horario
-    };
-
-    agendamentos.push(novoAgendamento);
-
-    salvarDados();
-    mostrarAgendamentos();
-
-    mensagem.textContent = "Agendamento realizado com sucesso!";
-    mensagem.style.color = "green";
-
-    formulario.reset();
-});
-
-// FUNÇÃO 2: CONSULTAR AGENDAMENTOS
-function mostrarAgendamentos() {
-
-    lista.innerHTML = "";
-
-    if (agendamentos.length === 0) {
-        lista.innerHTML = "<p>Nenhum agendamento cadastrado.</p>";
-        return;
-    }
-
-    const ordenados = [...agendamentos].sort((a, b) =>
-        (a.data + a.horario).localeCompare(b.data + b.horario)
-    );
-
-    ordenados.forEach(cliente => {
-
-        const card = document.createElement("div");
-        card.className = "agendamento";
-
-        const titulo = document.createElement("h3");
-        titulo.textContent = cliente.nome;
-
-        const telefone = document.createElement("p");
-        telefone.textContent = "Telefone: " + cliente.telefone;
-
-        const servico = document.createElement("p");
-        servico.textContent = "Serviço: " + cliente.servico;
-
-        const data = document.createElement("p");
-        data.textContent = "Data: " + cliente.data;
-
-        const horario = document.createElement("p");
-        horario.textContent = "Horário: " + cliente.horario;
-
-        const botao = document.createElement("button");
-        botao.textContent = "Excluir Agendamento";
-        botao.className = "excluir";
-
-        botao.addEventListener("click", function() {
-            excluirAgendamento(cliente);
-        });
-
-        card.append(
-            titulo,
-            telefone,
-            servico,
-            data,
-            horario,
-            botao
-        );
-
-        lista.appendChild(card);
-    });
-}
-
-// FUNÇÃO 3: EXCLUIR AGENDAMENTO
-function excluirAgendamento(cliente) {
-
-    const confirmar = confirm(
-        "Deseja excluir este agendamento?"
-    );
-
-    if (!confirmar) return;
-
-    agendamentos = agendamentos.filter(
-        item => item !== cliente
-    );
-
-    salvarDados();
-    mostrarAgendamentos();
-
-    mensagem.textContent = "Agendamento excluído com sucesso!";
-    mensagem.style.color = "green";
-}
-
-// FUNÇÃO 4: SALVAR DADOS
-function salvarDados() {
-
-    localStorage.setItem(
-        "beautyHair",
-        JSON.stringify(agendamentos)
-    );
-}
-
-// CARREGAR AGENDAMENTOS AO ABRIR
-mostrarAgendamentos();
-
-</script>
-
-</body>
-</html>
-
-
-<!DOCTYPE html>
-<html lang="pt-BR">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<title>Beauty Hair - Salão de Beleza</title>
-
-<style>
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
-
-body {
-    font-family: Arial, sans-serif;
-    background: #eaf3ff;
-    color: #24364b;
-}
-
-/* CABEÇALHO */
-header {
-    background: #0755a5;
-    color: white;
-    text-align: center;
-    padding: 30px 15px;
-}
-
-header h1 {
-    font-size: 36px;
-    letter-spacing: 2px;
-}
-
-header p {
-    margin-top: 10px;
-    color: #dceeff;
-}
-
-/* MENU */
-nav {
-    background: #063b78;
-    padding: 16px;
-    text-align: center;
-}
-
-nav a {
-    color: white;
-    text-decoration: none;
-    margin: 0 15px;
-    font-weight: bold;
-}
-
-nav a:hover {
-    color: #91caff;
-}
-
-/* CONTEÚDO */
-main {
-    max-width: 950px;
-    margin: 30px auto;
-    padding: 15px;
-}
-
-.container {
-    background: white;
-    padding: 28px;
-    border-radius: 12px;
-    margin-bottom: 25px;
-    box-shadow: 0 4px 15px rgba(0, 50, 110, 0.10);
-}
-
-h2 {
-    color: #0755a5;
-    margin-bottom: 20px;
-    border-bottom: 2px solid #d5e7fa;
-    padding-bottom: 12px;
-}
-
-/* FORMULÁRIO */
-label {
-    display: block;
-    margin: 14px 0 7px;
-    font-weight: bold;
-    color: #164d83;
-}
-
-input, select {
-    width: 100%;
-    padding: 13px;
-    border: 1px solid #c5d9ee;
-    border-radius: 7px;
-    font-size: 15px;
-    background: #fff;
-    color: #24364b;
-}
-
-input:focus, select:focus {
-    outline: 2px solid #68aaf0;
-}
-
-/* BOTÕES */
-button {
-    background: #0755a5;
-    color: white;
-    border: none;
-    padding: 13px 20px;
-    border-radius: 7px;
-    cursor: pointer;
-    margin-top: 18px;
-    font-size: 15px;
-    font-weight: bold;
-}
-
-button:hover {
-    background: #063b78;
-}
-
-/* AGENDAMENTOS */
-.agendamento {
-    background: #edf5ff;
-    border-left: 5px solid #0755a5;
-    padding: 18px;
-    border-radius: 8px;
-    margin-bottom: 15px;
-}
-
-.agendamento h3 {
-    color: #0755a5;
-    margin-bottom: 10px;
-}
-
-.agendamento p {
-    margin-top: 7px;
-}
-
-.excluir {
-    background: #c03939;
-}
-
-.excluir:hover {
-    background: #962b2b;
-}
-
-#mensagem {
-    margin-top: 15px;
-    font-weight: bold;
-}
-
-/* RODAPÉ */
-footer {
-    background: #063b78;
-    color: white;
-    text-align: center;
-    padding: 22px;
-    margin-top: 30px;
-}
-
-@media(max-width: 600px) {
-    header h1 {
-        font-size: 28px;
-    }
-
-    nav a {
-        display: inline-block;
-        margin: 7px;
-    }
-
-    .container {
-        padding: 18px;
-    }
-}
-</style>
-</head>
-
-<body>
-
-<header>
-    <h1>BEAUTY HAIR</h1>
-    <p>Sistema de Gerenciamento de Salão de Cabelo</p>
-</header>
-
-<nav>
-    <a href="#cadastro">Cadastrar Cliente</a>
-    <a href="#agendamentos">Agendamentos</a>
-</nav>
-
-<main>
-
-    <!-- CADASTRO E AGENDAMENTO -->
-    <section class="container" id="cadastro">
-
-        <h2>Novo Agendamento</h2>
-
-        <form id="formulario">
-
-            <label for="nome">Nome do cliente:</label>
-            <input type="text" id="nome"
-            placeholder="Digite o nome do cliente" required>
-
-            <label for="telefone">Telefone:</label>
-            <input type="tel" id="telefone"
-            placeholder="Digite o telefone" required>
-
-            <label for="servico">Escolha o serviço:</label>
-
-            <select id="servico" required>
-                <option value="">Selecione um serviço</option>
-                <option value="Corte - R$ 30">Corte - R$ 30</option>
-                <option value="Escova - R$ 40">Escova - R$ 40</option>
-                <option value="Hidratação - R$ 50">Hidratação - R$ 50</option>
-                <option value="Coloração - R$ 100">Coloração - R$ 100</option>
-            </select>
-
-            <label for="data">Data do atendimento:</label>
-            <input type="date" id="data" required>
-
-            <label for="horario">Horário:</label>
-            <input type="time" id="horario" required>
-
-            <button type="submit">Confirmar Agendamento</button>
-
-        </form>
-
-        <p id="mensagem" aria-live="polite"></p>
-
-    </section>
-
-    <!-- CONSULTA DE AGENDAMENTOS -->
-    <section class="container" id="agendamentos">
-
-        <h2>Agendamentos Realizados</h2>
-
-        <div id="lista"></div>
-
-    </section>
-
-</main>
-
-<footer>
-    <p>BEAUTY HAIR © 2026</p>
-    <p>Beleza, cuidado e elegância!</p>
-</footer>
-
-<script>
-
-// ARMAZENAMENTO DOS AGENDAMENTOS
-let agendamentos = JSON.parse(
-    localStorage.getItem("beautyHair")
-) || [];
-
-const formulario = document.getElementById("formulario");
-const lista = document.getElementById("lista");
-const mensagem = document.getElementById("mensagem");
-
-// FUNÇÃO 1: CADASTRAR CLIENTE E AGENDAR
-formulario.addEventListener("submit", function(event) {
-
-    event.preventDefault();
-
-    const nome = document.getElementById("nome").value.trim();
-    const telefone = document.getElementById("telefone").value.trim();
-    const servico = document.getElementById("servico").value;
-    const data = document.getElementById("data").value;
-    const horario = document.getElementById("horario").value;
-
-    // Impede datas anteriores à data atual
-    const hoje = new Date();
-    const ano = hoje.getFullYear();
-    const mes = String(hoje.getMonth() + 1).padStart(2, "0");
-    const dia = String(hoje.getDate()).padStart(2, "0");
-    const dataAtual = `${ano}-${mes}-${dia}`;
-
-    if (data < dataAtual) {
-        mensagem.textContent = "Escolha uma data válida!";
-        mensagem.style.color = "red";
-        return;
-    }
-
-    // Verifica se o horário está ocupado
-    const ocupado = agendamentos.some(cliente =>
-        cliente.data === data &&
-        cliente.horario === horario
-    );
-
-    if (ocupado) {
-        mensagem.textContent = "Este horário já está ocupado!";
-        mensagem.style.color = "red";
-        return;
-    }
-
-    const novoAgendamento = {
-        nome,
-        telefone,
-        servico,
-        data,
-        horario
-    };
-
-    agendamentos.push(novoAgendamento);
-
-    salvarDados();
-    mostrarAgendamentos();
-
-    mensagem.textContent = "Agendamento realizado com sucesso!";
-    mensagem.style.color = "green";
-
-    formulario.reset();
-});
-
-// FUNÇÃO 2: CONSULTAR AGENDAMENTOS
-function mostrarAgendamentos() {
-
-    lista.innerHTML = "";
-
-    if (agendamentos.length === 0) {
-        lista.innerHTML = "<p>Nenhum agendamento cadastrado.</p>";
-        return;
-    }
-
-    const ordenados = [...agendamentos].sort((a, b) =>
-        (a.data + a.horario).localeCompare(b.data + b.horario)
-    );
-
-    ordenados.forEach(cliente => {
-
-        const card = document.createElement("div");
-        card.className = "agendamento";
-
-        const titulo = document.createElement("h3");
-        titulo.textContent = cliente.nome;
-
-        const telefone = document.createElement("p");
-        telefone.textContent = "Telefone: " + cliente.telefone;
-
-        const servico = document.createElement("p");
-        servico.textContent = "Serviço: " + cliente.servico;
-
-        const data = document.createElement("p");
-        data.textContent = "Data: " + cliente.data;
-
-        const horario = document.createElement("p");
-        horario.textContent = "Horário: " + cliente.horario;
-
-        const botao = document.createElement("button");
-        botao.textContent = "Excluir Agendamento";
-        botao.className = "excluir";
-
-        botao.addEventListener("click", function() {
-            excluirAgendamento(cliente);
-        });
-
-        card.append(
-            titulo,
-            telefone,
-            servico,
-            data,
-            horario,
-            botao
-        );
-
-        lista.appendChild(card);
-    });
-}
-
-// FUNÇÃO 3: EXCLUIR AGENDAMENTO
-function excluirAgendamento(cliente) {
-
-    const confirmar = confirm(
-        "Deseja excluir este agendamento?"
-    );
-
-    if (!confirmar) return;
-
-    agendamentos = agendamentos.filter(
-        item => item !== cliente
-    );
-
-    salvarDados();
-    mostrarAgendamentos();
-
-    mensagem.textContent = "Agendamento excluído com sucesso!";
-    mensagem.style.color = "green";
-}
-
-// FUNÇÃO 4: SALVAR DADOS
-function salvarDados() {
-
-    localStorage.setItem(
-        "beautyHair",
-        JSON.stringify(agendamentos)
-    );
-}
-
-// CARREGAR AGENDAMENTOS AO ABRIR
-mostrarAgendamentos();
-
-</script>
-
-</body>
-</html>
-
-<!DOCTYPE html>
-<html lang="pt-BR">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<title>Beauty Hair - Salão de Beleza</title>
-
-<style>
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
-
-body {
-    font-family: Arial, sans-serif;
-    background: #eaf3ff;
-    color: #24364b;
-}
-
-/* CABEÇALHO */
-header {
-    background: #0755a5;
-    color: white;
-    text-align: center;
-    padding: 30px 15px;
-}
-
-header h1 {
-    font-size: 36px;
-    letter-spacing: 2px;
-}
-
-header p {
-    margin-top: 10px;
-    color: #dceeff;
-}
-
-/* MENU */
-nav {
-    background: #063b78;
-    padding: 16px;
-    text-align: center;
-}
-
-nav a {
-    color: white;
-    text-decoration: none;
-    margin: 0 15px;
-    font-weight: bold;
-}
-
-nav a:hover {
-    color: #91caff;
-}
-
-/* CONTEÚDO */
-main {
-    max-width: 950px;
-    margin: 30px auto;
-    padding: 15px;
-}
-
-.container {
-    background: white;
-    padding: 28px;
-    border-radius: 12px;
-    margin-bottom: 25px;
-    box-shadow: 0 4px 15px rgba(0, 50, 110, 0.10);
-}
-
-h2 {
-    color: #0755a5;
-    margin-bottom: 20px;
-    border-bottom: 2px solid #d5e7fa;
-    padding-bottom: 12px;
-}
-
-/* FORMULÁRIO */
-label {
-    display: block;
-    margin: 14px 0 7px;
-    font-weight: bold;
-    color: #164d83;
-}
-
-input, select {
-    width: 100%;
-    padding: 13px;
-    border: 1px solid #c5d9ee;
-    border-radius: 7px;
-    font-size: 15px;
-    background: #fff;
-    color: #24364b;
-}
-
-input:focus, select:focus {
-    outline: 2px solid #68aaf0;
-}
-
-/* BOTÕES */
-button {
-    background: #0755a5;
-    color: white;
-    border: none;
-    padding: 13px 20px;
-    border-radius: 7px;
-    cursor: pointer;
-    margin-top: 18px;
-    font-size: 15px;
-    font-weight: bold;
-}
-
-button:hover {
-    background: #063b78;
-}
-
-/* AGENDAMENTOS */
-.agendamento {
-    background: #edf5ff;
-    border-left: 5px solid #0755a5;
-    padding: 18px;
-    border-radius: 8px;
-    margin-bottom: 15px;
-}
-
-.agendamento h3 {
-    color: #0755a5;
-    margin-bottom: 10px;
-}
-
-.agendamento p {
-    margin-top: 7px;
-}
-
-.excluir {
-    background: #c03939;
-}
-
-.excluir:hover {
-    background: #962b2b;
-}
-
-#mensagem {
-    margin-top: 15px;
-    font-weight: bold;
-}
-
-/* RODAPÉ */
-footer {
-    background: #063b78;
-    color: white;
-    text-align: center;
-    padding: 22px;
-    margin-top: 30px;
-}
-
-@media(max-width: 600px) {
-    header h1 {
-        font-size: 28px;
-    }
-
-    nav a {
-        display: inline-block;
-        margin: 7px;
-    }
-
-    .container {
-        padding: 18px;
-    }
-}
-</style>
-</head>
-
-<body>
-
-<header>
-    <h1>BEAUTY HAIR</h1>
-    <p>Sistema de Gerenciamento de Salão de Cabelo</p>
-</header>
-
-<nav>
-    <a href="#cadastro">Cadastrar Cliente</a>
-    <a href="#agendamentos">Agendamentos</a>
-</nav>
-
-<main>
-
-    <!-- CADASTRO E AGENDAMENTO -->
-    <section class="container" id="cadastro">
-
-        <h2>Novo Agendamento</h2>
-
-        <form id="formulario">
-
-            <label for="nome">Nome do cliente:</label>
-            <input type="text" id="nome"
-            placeholder="Digite o nome do cliente" required>
-
-            <label for="telefone">Telefone:</label>
-            <input type="tel" id="telefone"
-            placeholder="Digite o telefone" required>
-
-            <label for="servico">Escolha o serviço:</label>
-
-            <select id="servico" required>
-                <option value="">Selecione um serviço</option>
-                <option value="Corte - R$ 30">Corte - R$ 30</option>
-                <option value="Escova - R$ 40">Escova - R$ 40</option>
-                <option value="Hidratação - R$ 50">Hidratação - R$ 50</option>
-                <option value="Coloração - R$ 100">Coloração - R$ 100</option>
-            </select>
-
-            <label for="data">Data do atendimento:</label>
-            <input type="date" id="data" required>
-
-            <label for="horario">Horário:</label>
-            <input type="time" id="horario" required>
-
-            <button type="submit">Confirmar Agendamento</button>
-
-        </form>
-
-        <p id="mensagem" aria-live="polite"></p>
-
-    </section>
-
-    <!-- CONSULTA DE AGENDAMENTOS -->
-    <section class="container" id="agendamentos">
-
-        <h2>Agendamentos Realizados</h2>
-
-        <div id="lista"></div>
-
-    </section>
-
-</main>
-
-<footer>
-    <p>BEAUTY HAIR © 2026</p>
-    <p>Beleza, cuidado e elegância!</p>
-</footer>
-
-<script>
-
-// ARMAZENAMENTO DOS AGENDAMENTOS
-let agendamentos = JSON.parse(
-    localStorage.getItem("beautyHair")
-) || [];
-
-const formulario = document.getElementById("formulario");
-const lista = document.getElementById("lista");
-const mensagem = document.getElementById("mensagem");
-
-// FUNÇÃO 1: CADASTRAR CLIENTE E AGENDAR
-formulario.addEventListener("submit", function(event) {
-
-    event.preventDefault();
-
-    const nome = document.getElementById("nome").value.trim();
-    const telefone = document.getElementById("telefone").value.trim();
-    const servico = document.getElementById("servico").value;
-    const data = document.getElementById("data").value;
-    const horario = document.getElementById("horario").value;
-
-    // Impede datas anteriores à data atual
-    const hoje = new Date();
-    const ano = hoje.getFullYear();
-    const mes = String(hoje.getMonth() + 1).padStart(2, "0");
-    const dia = String(hoje.getDate()).padStart(2, "0");
-    const dataAtual = `${ano}-${mes}-${dia}`;
-
-    if (data < dataAtual) {
-        mensagem.textContent = "Escolha uma data válida!";
-        mensagem.style.color = "red";
-        return;
-    }
-
-    // Verifica se o horário está ocupado
-    const ocupado = agendamentos.some(cliente =>
-        cliente.data === data &&
-        cliente.horario === horario
-    );
-
-    if (ocupado) {
-        mensagem.textContent = "Este horário já está ocupado!";
-        mensagem.style.color = "red";
-        return;
-    }
-
-    const novoAgendamento = {
-        nome,
-        telefone,
-        servico,
-        data,
-        horario
-    };
-
-    agendamentos.push(novoAgendamento);
-
-    salvarDados();
-    mostrarAgendamentos();
-
-    mensagem.textContent = "Agendamento realizado com sucesso!";
-    mensagem.style.color = "green";
-
-    formulario.reset();
-});
-
-// FUNÇÃO 2: CONSULTAR AGENDAMENTOS
-function mostrarAgendamentos() {
-
-    lista.innerHTML = "";
-
-    if (agendamentos.length === 0) {
-        lista.innerHTML = "<p>Nenhum agendamento cadastrado.</p>";
-        return;
-    }
-
-    const ordenados = [...agendamentos].sort((a, b) =>
-        (a.data + a.horario).localeCompare(b.data + b.horario)
-    );
-
-    ordenados.forEach(cliente => {
-
-        const card = document.createElement("div");
-        card.className = "agendamento";
-
-        const titulo = document.createElement("h3");
-        titulo.textContent = cliente.nome;
-
-        const telefone = document.createElement("p");
-        telefone.textContent = "Telefone: " + cliente.telefone;
-
-        const servico = document.createElement("p");
-        servico.textContent = "Serviço: " + cliente.servico;
-
-        const data = document.createElement("p");
-        data.textContent = "Data: " + cliente.data;
-
-        const horario = document.createElement("p");
-        horario.textContent = "Horário: " + cliente.horario;
-
-        const botao = document.createElement("button");
-        botao.textContent = "Excluir Agendamento";
-        botao.className = "excluir";
-
-        botao.addEventListener("click", function() {
-            excluirAgendamento(cliente);
-        });
-
-        card.append(
-            titulo,
-            telefone,
-            servico,
-            data,
-            horario,
-            botao
-        );
-
-        lista.appendChild(card);
-    });
-}
-
-// FUNÇÃO 3: EXCLUIR AGENDAMENTO
-function excluirAgendamento(cliente) {
-
-    const confirmar = confirm(
-        "Deseja excluir este agendamento?"
-    );
-
-    if (!confirmar) return;
-
-    agendamentos = agendamentos.filter(
-        item => item !== cliente
-    );
-
-    salvarDados();
-    mostrarAgendamentos();
-
-    mensagem.textContent = "Agendamento excluído com sucesso!";
-    mensagem.style.color = "green";
-}
-
-// FUNÇÃO 4: SALVAR DADOS
-function salvarDados() {
-
-    localStorage.setItem(
-        "beautyHair",
-        JSON.stringify(agendamentos)
-    );
-}
-
-// CARREGAR AGENDAMENTOS AO ABRIR
-mostrarAgendamentos();
-
-</script>
-
-</body>
 </html>
